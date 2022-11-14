@@ -30,21 +30,26 @@ public class FirestationRepository {
                     firestation.path("station").asInt()
             ));
         }
-        for (Firestation firestation : firestationList){
+        for (Firestation firestation : firestationList) {
             firestationMap.put(firestation.getAddress(), firestation);
         }
-
-
     }
 
-    public Map<String, Firestation> getFirestationMap (){
+    public Map<String, Firestation> getFirestationMap() {
         return firestationMap;
     }
 
-    public String  createFirestation (Firestation firestation){
+    public String createFirestation(Firestation firestation) {
         firestationMap.put(firestation.getAddress(), firestation);
 
         return "Firestation add !";
+    }
+
+    public String deleteFirestation(String firestation) {
+
+        firestationMap.remove(firestation);
+
+        return "Firestation delete !";
     }
 }
 

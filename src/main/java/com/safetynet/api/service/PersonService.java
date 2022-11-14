@@ -12,10 +12,5 @@ public class PersonService {
     @Autowired
     private PersonRepository personRepository;
 
-    public Iterable<Person> getPersons() {
-
-        return personRepository.getPersonMap().values();
-
-    }
 
 }

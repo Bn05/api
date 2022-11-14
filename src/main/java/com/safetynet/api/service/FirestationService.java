@@ -49,8 +49,12 @@ public class FirestationService {
     }
 
     public String createFirestation(Firestation firestation) {
-       return firestationRepository.createFirestation(firestation);
+        return firestationRepository.createFirestation(firestation);
     }
 
+    public String deleteFirestation(String firestation) {
+
+        return firestationRepository.deleteFirestation(firestation);
+    }
 
 }
