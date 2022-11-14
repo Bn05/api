@@ -19,21 +19,26 @@ public class FirestationController {
         return firestationService.getPersonsByStationNumber(stationNumber);
     }
 
+    @GetMapping(value = "/phoneAlert")
+    public List<String> getPhoneNumberByStationNumber(@RequestParam(value = "firestation") int stationNumber) {
+        return firestationService.getPhoneNumberByStationNumber(stationNumber);
+    }
+
     @PostMapping("/firestation")
     public String createFirestation(@RequestBody Firestation firestation) {
         return firestationService.createFirestation(firestation);
 
     }
 
-    @DeleteMapping(value ="/firestation")
-    public String deleteFirestation (@RequestParam(value = "firestation") String firestation){
-
-        return firestationService.deleteFirestation(firestation);
+    @PutMapping(value = "/firestation")
+    public String updateFiresation(@RequestBody Firestation firestation) {
+        return firestationService.updateFiresation(firestation);
     }
 
-    @PutMapping(value = "/firestation")
-    public String updateFiresation(@RequestBody Firestation firestation){
-        return firestationService.updateFiresation(firestation);
+    @DeleteMapping(value = "/firestation")
+    public String deleteFirestation(@RequestParam(value = "firestation") String firestation) {
+
+        return firestationService.deleteFirestation(firestation);
     }
 
 

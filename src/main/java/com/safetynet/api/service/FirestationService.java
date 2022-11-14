@@ -37,6 +37,21 @@ public class FirestationService {
         return Arrays.asList(countAdultAndChildMap, personLiteSelectList);
     }
 
+    public List<String> getPhoneNumberByStationNumber(int stationNumber) {
+
+        List<Firestation> firestationList = getFirestationsByNumber(stationNumber);
+        List<String> phoneNumberList = new ArrayList<>();
+
+        for (Firestation firestation : firestationList) {
+
+            List<Person> personList = personService.getPersonByStation(firestation);
+            for (Person person : personList) {
+                phoneNumberList.add(person.getPhone());
+            }
+        }
+        return phoneNumberList;
+    }
+
     public String createFirestation(Firestation firestation) {
         return firestationRepository.createFirestation(firestation);
     }
