@@ -8,10 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @Data
 @Repository
@@ -40,11 +39,15 @@ public class MedicalRecordRepository {
                 allergieList.add(allergie.asText());
             }
 
+            JsonNode birthdate = medicalRecord.path("birthdate");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+            formatter = formatter.withLocale(Locale.FRANCE);
+            LocalDate birthdateLocalDate = LocalDate.parse(birthdate.asText(),formatter);
 
             medicalRecordList.add(new MedicalRecord(
                     medicalRecord.path("firstName").asText(),
                     medicalRecord.path("lastName").asText(),
-                    medicalRecord.path("birthdate").asText(),
+                    birthdateLocalDate,
                     medicationMap,
                     allergieList
             ));

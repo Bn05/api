@@ -2,6 +2,7 @@ package com.safetynet.api.service;
 
 import com.safetynet.api.model.Firestation;
 import com.safetynet.api.model.Person;
+import com.safetynet.api.model.PersonLite;
 import com.safetynet.api.repository.FirestationRepository;
 import com.safetynet.api.repository.PersonRepository;
 
@@ -20,7 +21,7 @@ public class FirestationService {
     @Autowired
     private PersonRepository personRepository;
 
-    public Iterable<Person> getPersonsOfFirestation(int i) {
+    public List<PersonLite> getPersonsByStation(int i) {
 
         List<Firestation> firestationList = new ArrayList<>(firestationRepository.getFirestationMap().values());
         List<Person> personList = new ArrayList<>(personRepository.getPersonMap().values());
@@ -45,7 +46,15 @@ public class FirestationService {
             }
         }
 
-        return personSelectList;
+        List<PersonLite> personSelectListLite = new ArrayList<>();
+        for (Person person : personSelectList) {
+            personSelectListLite.add(
+                    new PersonLite(person.getFirstName(), person.getLastName(), person.getAddress(), person.getPhone())
+            );
+        }
+
+
+        return personSelectListLite;
     }
 
     public String createFirestation(Firestation firestation) {
@@ -57,7 +66,7 @@ public class FirestationService {
         return firestationRepository.deleteFirestation(firestation);
     }
 
-    public String updateFiresation (Firestation firestation){
+    public String updateFiresation(Firestation firestation) {
         return firestationRepository.updateFiresation(firestation);
     }
 
