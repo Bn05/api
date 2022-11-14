@@ -1,7 +1,6 @@
 package com.safetynet.api.controller;
 
 import com.safetynet.api.model.Firestation;
-import com.safetynet.api.model.PersonLite;
 import com.safetynet.api.service.FirestationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +14,9 @@ public class FirestationController {
     private FirestationService firestationService;
 
     @GetMapping(value = "/firestation")
-    public List<PersonLite> getPersonsByStation(@RequestParam(value = "stationNumber") int stationNumber) {
+    public List<Object> getPersonsByStationNumber(@RequestParam(value = "stationNumber") int stationNumber) {
 
-        return firestationService.getPersonsByStation(stationNumber);
+        return firestationService.getPersonsByStationNumber(stationNumber);
     }
 
     @PostMapping("/firestation")
