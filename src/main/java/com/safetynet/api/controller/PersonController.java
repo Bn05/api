@@ -3,8 +3,7 @@ package com.safetynet.api.controller;
 import com.safetynet.api.model.Person;
 import com.safetynet.api.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PersonController {
@@ -12,5 +11,19 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
+    @PostMapping(value = "/person")
+    public String createPerson(@RequestBody Person person) {
+        return personService.createPerson(person);
+    }
+
+    @PutMapping(value = "/person")
+    public String updatePerson(@RequestBody Person person) {
+        return personService.updatePerson(person);
+    }
+
+    @DeleteMapping(value = "/person")
+    public String deletePerson(@RequestParam(value = "firstName") String firstName, @RequestParam(value = "lastName") String lastName) {
+        return personService.deletePerson(firstName, lastName);
+    }
 
 }

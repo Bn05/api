@@ -12,5 +12,15 @@ public class PersonService {
     @Autowired
     private PersonRepository personRepository;
 
+    public String createPerson(Person person) {
+        return personRepository.createPerson(person);
+    }
 
+    public String updatePerson(Person person) {
+        return personRepository.updatePerson(person);
+    }
+
+    public String deletePerson(String firstName, String lastName) {
+        return personRepository.deletePerson(firstName, lastName);
+    }
 }
