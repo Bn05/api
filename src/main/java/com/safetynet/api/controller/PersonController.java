@@ -5,6 +5,8 @@ import com.safetynet.api.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class PersonController {
 
@@ -25,5 +27,11 @@ public class PersonController {
     public String deletePerson(@RequestParam(value = "firstName") String firstName, @RequestParam(value = "lastName") String lastName) {
         return personService.deletePerson(firstName, lastName);
     }
+
+    @GetMapping(value = "/childAlert")
+    public List<Object> childAlertAndFamilyByAdress(@RequestParam(value = "address") String address) {
+        return personService.childAlertAndFamilyByAdress(address);
+    }
+
 
 }
