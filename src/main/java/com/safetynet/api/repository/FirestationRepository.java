@@ -42,6 +42,8 @@ public class FirestationRepository {
     public String createFirestation(Firestation firestation) {
         firestationMap.put(firestation.getAddress(), firestation);
 
+        //TODO : ajout erreur si firestation deja existante
+
         return "Firestation add !";
     }
 
@@ -49,7 +51,18 @@ public class FirestationRepository {
 
         firestationMap.remove(firestation);
 
+        // TODO : ajout erreur si firesation innexistante
+
         return "Firestation delete !";
+    }
+
+    public String updateFiresation(Firestation firestation) {
+
+        firestationMap.put(firestation.getAddress(), firestation);
+
+        //TODO : ajout erreur si firestation inexistante
+
+        return "Firestation update !";
     }
 }
 

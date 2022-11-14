@@ -57,4 +57,8 @@ public class FirestationService {
         return firestationRepository.deleteFirestation(firestation);
     }
 
+    public String updateFiresation (Firestation firestation){
+        return firestationRepository.updateFiresation(firestation);
+    }
+
 }

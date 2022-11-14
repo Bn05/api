@@ -30,5 +30,10 @@ public class FirestationController {
         return firestationService.deleteFirestation(firestation);
     }
 
+    @PutMapping(value = "/firestation")
+    public String updateFiresation(@RequestBody Firestation firestation){
+        return firestationService.updateFiresation(firestation);
+    }
+
 
 }
