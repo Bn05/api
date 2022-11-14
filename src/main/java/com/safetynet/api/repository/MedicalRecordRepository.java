@@ -3,6 +3,7 @@ package com.safetynet.api.repository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.safetynet.api.model.MedicalRecord;
+import lombok.Data;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -12,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Data
 @Repository
 public class MedicalRecordRepository {
 
@@ -53,12 +55,41 @@ public class MedicalRecordRepository {
         }
     }
 
-    public Map<String, MedicalRecord> getMedicalRecordMap() {
-        return medicalRecordMap;
-    }
+    public String createMedicalRecord(MedicalRecord medicalRecord) {
 
-    public void setMedicalRecord(MedicalRecord medicalRecord) {
         medicalRecordMap.put(medicalRecord.getFirstName() + medicalRecord.getLastName(), medicalRecord);
 
+        return "Medical Record Create !!";
     }
+
+    public String updateMedicalRecord(MedicalRecord medicalRecord) {
+
+         medicalRecordMap.put(medicalRecord.getFirstName() + medicalRecord.getLastName(), medicalRecord);
+
+        return "Medical Record Update !!";
+    }
+
+    public String deleteMedicalRecord(String firstName, String lastName) {
+
+        medicalRecordMap.remove(firstName + lastName);
+
+        return "Medical Record Delete !!";
+    }
+
+    public void medicalRecordTest() {
+
+        for (String medicalRecord : medicalRecordMap.keySet()) {
+
+            System.out.println(
+                    "FirstName : " + medicalRecordMap.get(medicalRecord).getFirstName() + " || LastName : " + medicalRecordMap.get(medicalRecord).getLastName() + " || Allergie : " + medicalRecordMap.get(medicalRecord).getAllergies() +" || Birthdate "+medicalRecordMap.get(medicalRecord).getBirthdate()
+            );
+        }
+    }
+
+    public MedicalRecord  getRecordMedical (String firstName, String lastName){
+        return medicalRecordMap.get(firstName+lastName);
+    }
+
+
+
 }

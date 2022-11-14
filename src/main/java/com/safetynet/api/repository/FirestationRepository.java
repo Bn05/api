@@ -3,6 +3,7 @@ package com.safetynet.api.repository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.safetynet.api.model.Firestation;
+import lombok.Data;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -12,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@Data
 @Repository
 public class FirestationRepository {
 
@@ -33,10 +34,6 @@ public class FirestationRepository {
         for (Firestation firestation : firestationList) {
             firestationMap.put(firestation.getAddress(), firestation);
         }
-    }
-
-    public Map<String, Firestation> getFirestationMap() {
-        return firestationMap;
     }
 
     public String createFirestation(Firestation firestation) {

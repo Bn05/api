@@ -57,6 +57,8 @@ public class PersonRepository {
 
         personMap.remove(firstName + lastName);
 
+        //TODO : erreur si personne non existante
+
         return "Person delete !!";
     }
 
