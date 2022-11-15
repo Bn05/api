@@ -78,18 +78,29 @@ public class PersonRepository {
         return personSelectList;
     }
 
-    public List<Person> getPersonByAdress(String adress) {
+    public List<Person> getPersonByAddress(String address) {
 
         List<Person> personList = new ArrayList<>(personMap.values());
         List<Person> personSelectList = new ArrayList<>();
 
         for (Person person : personList) {
-            if (adress.equals(person.getAddress())) {
+            if (address.equals(person.getAddress())) {
                 personSelectList.add(person);
             }
         }
         return personSelectList;
     }
 
+    public List<String> getEmailByCity(String city) {
+        List<Person> personList = new ArrayList<>(personMap.values());
+
+        List<String> emailList = new ArrayList<>();
+        for (Person person : personList) {
+            if (person.getCity().equals(city)) {
+                emailList.add(person.getEmail());
+            }
+        }
+        return emailList;
+    }
 }
 

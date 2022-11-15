@@ -39,5 +39,10 @@ public class PersonController {
         return personService.getPersonMedicalRecordAndStationNumber(address);
     }
 
+   @GetMapping(value = "/communityEmail")
+    public List<String> getEmailByCity(@RequestParam(value = "city")String city){
+        return personService.getEmailByCity(city);
+    }
+
 
 }

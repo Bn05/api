@@ -23,7 +23,7 @@ public class PersonService {
 
     public List<Object> getChildAlertAndFamilyByAdress(String adress) {
 
-        List<Person> personList = personRepository.getPersonByAdress(adress);
+        List<Person> personList = personRepository.getPersonByAddress(adress);
         List<Person> childList = getChild(personList);
 
         List<Object> childInfoList = new ArrayList<>();
@@ -54,7 +54,7 @@ public class PersonService {
 
     public Map<String, Object> getPersonMedicalRecordAndStationNumber(String address) {
 
-        List<Person> personList = personRepository.getPersonByAdress(address);
+        List<Person> personList = personRepository.getPersonByAddress(address);
         Firestation firestation = firestationRepository.getFirestationByAddress(address);
 
         List<Object> personLiteList = new ArrayList<>();
@@ -83,6 +83,9 @@ public class PersonService {
         return objectMap;
     }
 
+    public List<String> getEmailByCity(String city) {
+        return personRepository.getEmailByCity(city);
+    }
 
     public String createPerson(Person person) {
         return personRepository.createPerson(person);
@@ -95,8 +98,6 @@ public class PersonService {
     public String deletePerson(String firstName, String lastName) {
         return personRepository.deletePerson(firstName, lastName);
     }
-
-
 
     public List<Person> getChild(List<Person> personList) {
         List<Person> childList = new ArrayList<>();
