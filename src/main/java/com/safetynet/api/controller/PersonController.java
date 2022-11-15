@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class PersonController {
@@ -30,7 +31,12 @@ public class PersonController {
 
     @GetMapping(value = "/childAlert")
     public List<Object> childAlertAndFamilyByAdress(@RequestParam(value = "address") String address) {
-        return personService.childAlertAndFamilyByAdress(address);
+        return personService.getChildAlertAndFamilyByAdress(address);
+    }
+
+    @GetMapping(value = "/fire")
+    public Map<String,Object> getPersonMedicalRecordAndStationNumber(@RequestParam(value="address")String address){
+        return personService.getPersonMedicalRecordAndStationNumber(address);
     }
 
 

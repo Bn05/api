@@ -61,6 +61,30 @@ public class FirestationRepository {
 
         return "Firestation update !";
     }
+
+    public Firestation getFirestationByAddress(String address) {
+
+        List<Firestation> firestationList = new ArrayList<>(firestationMap.values());
+        for (Firestation firestation : firestationList) {
+            if (firestation.getAddress().equals(address)) {
+                return firestation;
+            }
+        }
+        return null;
+    }
+
+    public List<Firestation> getFirestationsByNumber(int stationNumber) {
+
+        List<Firestation> firestationList = new ArrayList<>(firestationMap.values());
+        List<Firestation> firestationSelectList = new ArrayList<>();
+        for (Firestation firestation : firestationList) {
+            if (firestation.getStation() == stationNumber) {
+                firestationSelectList.add(firestation);
+            }
+        }
+        return firestationSelectList;
+    }
 }
+
 
 

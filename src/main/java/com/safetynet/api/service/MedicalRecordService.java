@@ -5,9 +5,9 @@ import com.safetynet.api.repository.MedicalRecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class MedicalRecordService {
-
     @Autowired
     MedicalRecordRepository medicalRecordRepository;
 
@@ -23,12 +23,8 @@ public class MedicalRecordService {
         return medicalRecordRepository.deleteMedicalRecord(firstName, lastName);
     }
 
-    public void medicalRecordTest() {
-        medicalRecordRepository.medicalRecordTest();
-    }
-
     public MedicalRecord getMedicalRecord (String firstName, String lastName){
-       return medicalRecordRepository.getRecordMedical(firstName, lastName);
+       return medicalRecordRepository.getMedicalRecord(firstName, lastName);
     }
 
 }

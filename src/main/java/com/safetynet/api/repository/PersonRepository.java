@@ -2,6 +2,7 @@ package com.safetynet.api.repository;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.safetynet.api.model.Firestation;
 import com.safetynet.api.model.Person;
 import lombok.Data;
 import org.springframework.stereotype.Repository;
@@ -10,10 +11,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-@Repository
 @Data
+@Repository
 public class PersonRepository {
 
     private Map<String, Person> personMap = new HashMap<>();
@@ -60,6 +62,33 @@ public class PersonRepository {
         //TODO : erreur si personne non existante
 
         return "Person delete !!";
+    }
+
+    public List<Person> getPersonByStation(Firestation firestation) {
+
+        List<Person> personList = new ArrayList<>(personMap.values());
+        List<Person> personSelectList = new ArrayList<>();
+
+        for (Person person : personList) {
+            if (person.getAddress().equals(firestation.getAddress())) {
+                personSelectList.add(person);
+            }
+        }
+
+        return personSelectList;
+    }
+
+    public List<Person> getPersonByAdress(String adress) {
+
+        List<Person> personList = new ArrayList<>(personMap.values());
+        List<Person> personSelectList = new ArrayList<>();
+
+        for (Person person : personList) {
+            if (adress.equals(person.getAddress())) {
+                personSelectList.add(person);
+            }
+        }
+        return personSelectList;
     }
 
 }
