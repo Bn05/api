@@ -42,7 +42,7 @@ public class FirestationController {
     }
 
     @DeleteMapping(value = "/firestation")
-    public String deleteFirestation(@RequestParam(value = "firestation") String firestation) {
+    public String deleteFirestation(@RequestParam(value = "firestation") Firestation firestation) {
 
         return firestationService.deleteFirestation(firestation);
     }

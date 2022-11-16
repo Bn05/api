@@ -2,8 +2,9 @@ package com.safetynet.api.repository;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.safetynet.api.Error.ErrorAlwaysExistException;
+import com.safetynet.api.Error.ErrorNoExistException;
 import com.safetynet.api.model.Firestation;
-import lombok.Data;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -13,9 +14,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Data
+
 @Repository
 public class FirestationRepository {
+
+    public Map<String, Firestation> getFirestationMap() {
+        return firestationMap;
+    }
 
     private Map<String, Firestation> firestationMap = new HashMap<>();
 
@@ -37,29 +42,44 @@ public class FirestationRepository {
     }
 
     public String createFirestation(Firestation firestation) {
-        firestationMap.put(firestation.getAddress(), firestation);
-
-        //TODO : ajout erreur si firestation deja existante
-
-        return "Firestation add !";
+        try {
+            if (!firestationMap.containsKey(firestation.getAddress())) {
+                firestationMap.put(firestation.getAddress(), firestation);
+                return "Firestation add !";
+            } else {
+                throw new ErrorAlwaysExistException("Firestation always exist");
+            }
+        } catch (ErrorAlwaysExistException e) {
+            return "Firestation always exist";
+        }
     }
 
-    public String deleteFirestation(String firestation) {
+    public String deleteFirestation(Firestation firestation) {
+        try {
+            if (firestationMap.containsKey(firestation.getAddress())) {
 
-        firestationMap.remove(firestation);
+                firestationMap.remove(firestation.getAddress());
 
-        // TODO : ajout erreur si firesation innexistante
-
-        return "Firestation delete !";
+                return "Firestation delete !";
+            } else {
+                throw new ErrorNoExistException("Firestation doesn't exist !");
+            }
+        } catch (ErrorNoExistException e) {
+            return "Firestation doesn't exist !";
+        }
     }
 
     public String updateFiresation(Firestation firestation) {
-
-        firestationMap.put(firestation.getAddress(), firestation);
-
-        //TODO : ajout erreur si firestation inexistante
-
-        return "Firestation update !";
+        try {
+            if (firestationMap.containsKey(firestation.getAddress())) {
+                firestationMap.put(firestation.getAddress(), firestation);
+                return "Firestation update !";
+            } else {
+                throw new ErrorNoExistException("Firestation doesn't exist !");
+            }
+        } catch (ErrorNoExistException e) {
+            return "Firestation doesn't exist !";
+        }
     }
 
     public Firestation getFirestationByAddress(String address) {
@@ -84,6 +104,8 @@ public class FirestationRepository {
         }
         return firestationSelectList;
     }
+
+
 }
 
 

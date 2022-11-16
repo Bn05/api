@@ -98,7 +98,7 @@ public class FirestationService {
         return firestationRepository.createFirestation(firestation);
     }
 
-    public String deleteFirestation(String firestation) {
+    public String deleteFirestation(Firestation firestation) {
 
         return firestationRepository.deleteFirestation(firestation);
     }
