@@ -1,29 +1,34 @@
 package com.safetynet.api.repository;
 
-import com.safetynet.api.Error.ErrorAlwaysExistException;
 import com.safetynet.api.model.Firestation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 
 @SpringBootTest
 class FirestationRepositoryTest {
 
     @Autowired
     FirestationRepository firestationRepository;
-
+    private Map<String, Firestation> testMap = new HashMap<>();
+    private Firestation firestation0 = new Firestation("testAddress0", 0);
+    private Firestation firestation1 = new Firestation("testAddress1", 1);
 
     @BeforeEach
-    void setUpPerTest() {
-        firestationRepository.getFirestationMap().clear();
-
+    public void setUpPerTest() {
+        testMap.clear();
+        ReflectionTestUtils.setField(firestationRepository, "firestationMap", testMap);
+        testMap.put(firestation0.getAddress(), firestation0);
     }
 
     @Test
@@ -31,28 +36,19 @@ class FirestationRepositoryTest {
     }
 
     @Test
-    void readJsonFile() {
-    }
-
-    @Test
     void createFirestationTest() {
 
-        Firestation firestation = new Firestation("testAddress0", 0);
+        String result = firestationRepository.createFirestation(firestation1);
+        Firestation firestationTest = testMap.get("testAddress1");
 
-        String result = firestationRepository.createFirestation(firestation);
-        Firestation firestationTest = firestationRepository.getFirestationMap().get("testAddress0");
-
-        assertEquals(firestation, firestationTest);
+        assertEquals(firestation1, firestationTest);
         assertEquals("Firestation add !", result);
     }
 
     @Test
     void createFirestationAlwaysExistTest() {
-        Firestation firestation = new Firestation("testAddress0", 0);
 
-        firestationRepository.createFirestation(firestation);
-
-        String result = firestationRepository.createFirestation(firestation);
+        String result = firestationRepository.createFirestation(firestation0);
 
         assertEquals("Firestation always exist", result);
     }
@@ -60,13 +56,9 @@ class FirestationRepositoryTest {
     @Test
     void deleteFirestationTest() {
 
-        Firestation firestation = new Firestation("testAddress0", 0);
-        Map<String, Firestation> firestationMap = firestationRepository.getFirestationMap();
-        firestationMap.put(firestation.getAddress(), firestation);
+        String result = firestationRepository.deleteFirestation(firestation0);
 
-        String result = firestationRepository.deleteFirestation(firestation);
-
-        boolean test = firestationMap.containsKey("testAddress0");
+        boolean test = testMap.containsValue(firestation0);
 
         assertFalse(test);
         assertEquals("Firestation delete !", result);
@@ -75,35 +67,34 @@ class FirestationRepositoryTest {
     @Test
     void deleteFirestationNoExistTest() {
 
-        Firestation firestation = new Firestation("testAddress0", 0);
-
-        String result = firestationRepository.deleteFirestation(firestation);
+        String result = firestationRepository.deleteFirestation(firestation1);
+        boolean test = testMap.containsValue(firestation1);
 
         assertEquals("Firestation doesn't exist !", result);
+        assertFalse(test);
     }
 
     @Test
     void updateFiresationTest() {
-        Firestation firestation = new Firestation("testAddress0", 0);
+
+
         Firestation firestationUpdate = new Firestation("testAddress0", 1);
-        Map<String, Firestation> firestationMap = firestationRepository.getFirestationMap();
-        firestationMap.put(firestation.getAddress(), firestation);
 
         String result = firestationRepository.updateFiresation(firestationUpdate);
-        boolean test = firestationMap.containsValue(firestation);
+        boolean test = testMap.containsValue(firestation0);
+        boolean test2 = testMap.containsValue(firestationUpdate);
 
-        assertFalse(test);
         assertEquals("Firestation update !", result);
+        assertFalse(test);
+        assertTrue(test2);
 
     }
 
     @Test
     void updateFiresationNoExistTest() {
-        Firestation firestationUpdate = new Firestation("testAddress0", 1);
-        Map<String, Firestation> firestationMap = firestationRepository.getFirestationMap();
 
-        String result = firestationRepository.updateFiresation(firestationUpdate);
-        boolean test = firestationMap.containsValue(firestationUpdate);
+        String result = firestationRepository.updateFiresation(firestation1);
+        boolean test = testMap.containsValue(firestation1);
 
 
         assertEquals("Firestation doesn't exist !", result);
@@ -113,9 +104,6 @@ class FirestationRepositoryTest {
 
     @Test
     void getFirestationByAddressTest() {
-        Firestation firestation0 = new Firestation("testAddress0", 0);
-        Map<String, Firestation> firestationMap = firestationRepository.getFirestationMap();
-        firestationMap.put(firestation0.getAddress(), firestation0);
 
         Firestation firestationResult0 = firestationRepository.getFirestationByAddress("testAddress0");
 
@@ -124,9 +112,6 @@ class FirestationRepositoryTest {
 
     @Test
     void getFirestationByAddressNoExistTest() {
-        Firestation firestation0 = new Firestation("testAddress0", 0);
-        Map<String, Firestation> firestationMap = firestationRepository.getFirestationMap();
-        firestationMap.put(firestation0.getAddress(), firestation0);
 
         Firestation firestationResult = firestationRepository.getFirestationByAddress("Error Address");
 
@@ -136,28 +121,24 @@ class FirestationRepositoryTest {
     @Test
     void getFirestationsByNumberTest() {
 
-        Firestation firestation0 = new Firestation("testAddress0", 0);
         List<Firestation> firestationList = new ArrayList<>();
         firestationList.add(firestation0);
-        Map<String, Firestation> firestationMap = firestationRepository.getFirestationMap();
-        firestationMap.put(firestation0.getAddress(), firestation0);
 
-        List<Firestation> firestationResult0 = firestationRepository.getFirestationsByNumber(0);
+        List<Firestation> firestationResult = firestationRepository.getFirestationsByNumber(0);
 
-        assertEquals(firestationList, firestationResult0);
+        assertEquals(firestationList, firestationResult);
     }
 
     @Test
     void getFirestationsByNumberNoExistTest() {
 
-        Firestation firestation0 = new Firestation("testAddress0", 0);
-        Map<String, Firestation> firestationMap = firestationRepository.getFirestationMap();
-        firestationMap.put(firestation0.getAddress(), firestation0);
-
         List<Firestation> firestationResult0 = firestationRepository.getFirestationsByNumber(1);
 
         assertTrue(firestationResult0.isEmpty());
-
-
     }
+
+
+
 }
+
+

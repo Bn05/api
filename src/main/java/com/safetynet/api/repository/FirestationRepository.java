@@ -18,10 +18,6 @@ import java.util.Map;
 @Repository
 public class FirestationRepository {
 
-    public Map<String, Firestation> getFirestationMap() {
-        return firestationMap;
-    }
-
     private Map<String, Firestation> firestationMap = new HashMap<>();
 
     public void readJsonFile() throws IOException {
