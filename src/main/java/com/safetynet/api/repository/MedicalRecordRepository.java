@@ -110,4 +110,14 @@ public class MedicalRecordRepository {
         return Period.between(birthdate, now);
     }
 
+    public List<String> getAllergie(String firstName, String lastName) {
+
+        return getMedicalRecord(firstName, lastName).getAllergies();
+    }
+
+    public Map<String, String> getMedication(String firstName, String lastName) {
+
+        return getMedicalRecord(firstName, lastName).getMedications();
+    }
+
 }

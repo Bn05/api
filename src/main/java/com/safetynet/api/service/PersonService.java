@@ -6,6 +6,8 @@ import com.safetynet.api.repository.FirestationRepository;
 import com.safetynet.api.repository.MedicalRecordRepository;
 import com.safetynet.api.repository.PersonRepository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,10 @@ import java.util.*;
 
 @Service
 public class PersonService {
+
+    Logger logger = LoggerFactory.getLogger(PersonService.class);
+
+
     @Autowired
     private PersonRepository personRepository;
     @Autowired
@@ -21,9 +27,11 @@ public class PersonService {
     @Autowired
     private FirestationRepository firestationRepository;
 
-    public List<Object> getChildAlertAndFamilyByAdress(String adress) {
+    public List<Object> getChildAlertAndFamilyByAddress(String address) {
 
-        List<Person> personList = personRepository.getPersonByAddress(adress);
+        logger.info("TESTE des logguer !! !youpoi  ou pas");
+
+        List<Person> personList = personRepository.getPersonByAddress(address);
         List<Person> childList = getChild(personList);
 
         List<Object> childInfoList = new ArrayList<>();
@@ -85,6 +93,27 @@ public class PersonService {
 
     public List<String> getEmailByCity(String city) {
         return personRepository.getEmailByCity(city);
+    }
+
+    public List<Map<String, String>> getPersonInfo(String firstName, String lastNAme) {
+
+        List<Person> personList = new ArrayList<>(personRepository.getPersonMap().values());
+
+        List<Map<String, String>> peronResultList = new ArrayList<>();
+        for (Person person : personList) {
+            if (person.getLastName().equals(lastNAme) && person.getFirstName().equals(firstName)) {
+                Map<String, String> personMap = new LinkedHashMap<>();
+                personMap.put("firstName", person.getFirstName());
+                personMap.put("lastName", person.getLastName());
+                personMap.put("address", person.getAddress());
+                personMap.put("Age", String.valueOf(medicalRecordRepository.getAge(person).getYears()));
+                personMap.put("email", person.getEmail());
+                personMap.put("medications", medicalRecordRepository.getMedication(firstName, lastNAme).toString());
+                personMap.put("allergies", medicalRecordRepository.getAllergie(firstName, lastNAme).toString());
+                peronResultList.add(personMap);
+            }
+        }
+        return peronResultList;
     }
 
     public String createPerson(Person person) {

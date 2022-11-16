@@ -2,6 +2,8 @@ package com.safetynet.api.controller;
 
 import com.safetynet.api.model.Person;
 import com.safetynet.api.service.PersonService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,6 +12,8 @@ import java.util.Map;
 
 @RestController
 public class PersonController {
+
+    Logger logger = LoggerFactory.getLogger(PersonController.class);
 
     @Autowired
     private PersonService personService;
@@ -31,13 +35,19 @@ public class PersonController {
 
     @GetMapping(value = "/childAlert")
     public List<Object> childAlertAndFamilyByAdress(@RequestParam(value = "address") String address) {
-        return personService.getChildAlertAndFamilyByAdress(address);
+        return personService.getChildAlertAndFamilyByAddress(address);
     }
 
     @GetMapping(value = "/fire")
     public Map<String,Object> getPersonMedicalRecordAndStationNumber(@RequestParam(value="address")String address){
         return personService.getPersonMedicalRecordAndStationNumber(address);
     }
+
+    @GetMapping(value = "/personInfo")
+    public List<Map<String, String>> getPersonInfo (@RequestParam(value = "firstName")String firstName,@RequestParam(value = "lastName")String lastName){
+        return personService.getPersonInfo(firstName,lastName);
+    }
+
 
    @GetMapping(value = "/communityEmail")
     public List<String> getEmailByCity(@RequestParam(value = "city")String city){
