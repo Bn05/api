@@ -46,11 +46,11 @@ class FirestationRepositoryTest {
     }
 
     @Test
-    void createFirestationAlwaysExistTest() {
+    void createFirestationAlreadyExistTest() {
 
         String result = firestationRepository.createFirestation(firestation0);
 
-        assertEquals("Firestation always exist", result);
+        assertEquals("Firestation already exist", result);
     }
 
     @Test

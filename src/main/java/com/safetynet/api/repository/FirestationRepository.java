@@ -2,7 +2,7 @@ package com.safetynet.api.repository;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.safetynet.api.Error.ErrorAlwaysExistException;
+import com.safetynet.api.Error.ErrorAlreadyExistException;
 import com.safetynet.api.Error.ErrorNoExistException;
 import com.safetynet.api.model.Firestation;
 import org.springframework.stereotype.Repository;
@@ -43,10 +43,10 @@ public class FirestationRepository {
                 firestationMap.put(firestation.getAddress(), firestation);
                 return "Firestation add !";
             } else {
-                throw new ErrorAlwaysExistException("Firestation always exist");
+                throw new ErrorAlreadyExistException("Firestation Already exist");
             }
-        } catch (ErrorAlwaysExistException e) {
-            return "Firestation always exist";
+        } catch (ErrorAlreadyExistException e) {
+            return "Firestation already exist";
         }
     }
 

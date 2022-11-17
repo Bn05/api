@@ -2,9 +2,10 @@ package com.safetynet.api.repository;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.safetynet.api.Error.ErrorAlreadyExistException;
+import com.safetynet.api.Error.ErrorNoExistException;
 import com.safetynet.api.model.Firestation;
 import com.safetynet.api.model.Person;
-import lombok.Data;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -14,12 +15,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Data
+
 @Repository
 public class PersonRepository {
 
+
+
     private Map<String, Person> personMap = new HashMap<>();
 
+    public Map<String, Person> getPersonMap() {
+
+       return new HashMap<>(personMap);
+
+    }
 
     public void readJsonFile() throws IOException {
 
@@ -37,31 +45,46 @@ public class PersonRepository {
     }
 
     public String createPerson(Person person) {
+        try {
+            if (!personMap.containsValue(person)) {
+                personMap.put(person.getFirstName() + person.getLastName(), person);
+                return "Person create !!";
+            } else {
+                throw new ErrorAlreadyExistException("Person Already Exist !");
+            }
+        } catch (ErrorAlreadyExistException e) {
+            return "Person Already Exist !";
+        }
 
-        personMap.put(person.getFirstName() + person.getLastName(), person);
 
-        //TODO : erreur si personne deja existante
-
-        return "Person create !!";
     }
 
     public String updatePerson(Person person) {
 
-        personMap.put(person.getFirstName() + person.getLastName(), person);
-
-        //TODO : erreur si personne non existante
-
-        return "Person update !!";
-
+        try {
+            if (personMap.containsKey(person.getFirstName() + person.getLastName())) {
+                personMap.put(person.getFirstName() + person.getLastName(), person);
+                return "Person update !!";
+            } else {
+                throw new ErrorNoExistException("Person doesn't Exist !");
+            }
+        } catch (ErrorNoExistException e) {
+            return "Person doesn't Exist !";
+        }
     }
 
     public String deletePerson(String firstName, String lastName) {
 
-        personMap.remove(firstName + lastName);
-
-        //TODO : erreur si personne non existante
-
-        return "Person delete !!";
+        try {
+            if (personMap.containsKey(firstName + lastName)) {
+                personMap.remove(firstName + lastName);
+                return "Person delete !!";
+            } else {
+                throw new ErrorNoExistException("Person doesn't Exist !");
+            }
+        } catch (ErrorNoExistException e) {
+            return "Person doesn't Exist !";
+        }
     }
 
     public List<Person> getPersonByStation(Firestation firestation) {
