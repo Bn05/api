@@ -35,7 +35,7 @@ public class FirestationService {
             Map<String, String> personMap = new LinkedHashMap<>();
             personMap.put("firstName", person.getFirstName());
             personMap.put("lastName", person.getLastName());
-            personMap.put("adress", person.getAddress());
+            personMap.put("address", person.getAddress());
             personMap.put("phone", person.getPhone());
             personLiteSelectList.add(personMap);
         }
@@ -63,7 +63,6 @@ public class FirestationService {
     public Map<String, List<String>> getFamilyByFireStation(List<Integer> firestationNumberList) {
 
         List<Firestation> firestationList = new ArrayList<>();
-
         for (int firestationNumber : firestationNumberList) {
             firestationList.addAll(firestationRepository.getFirestationsByNumber(firestationNumber));
         }
@@ -83,14 +82,9 @@ public class FirestationService {
 
                 personStringList.add(firstName + " " + lastName + " || Phone : " + phone + " || Age : " + age + " || Medications : " + medication + " || Allergies : " + allergies);
             }
-
             result.put("Address : "+firestation.getAddress(), personStringList);
-
         }
-
         return result;
-
-
     }
 
 

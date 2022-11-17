@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FirestationRepositoryTest {
 
     @Autowired
-    FirestationRepository firestationRepository;
+    private FirestationRepository firestationRepository;
     private Map<String, Firestation> testMap = new HashMap<>();
     private Firestation firestation0 = new Firestation("testAddress0", 0);
     private Firestation firestation1 = new Firestation("testAddress1", 1);

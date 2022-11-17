@@ -1,8 +1,5 @@
 package com.safetynet.api.model;
 
-import lombok.Data;
-
-@Data
 public class Firestation {
 
     private String address;
@@ -11,5 +8,13 @@ public class Firestation {
     public Firestation(String address, int station) {
         this.address = address;
         this.station = station;
+    }
+
+    public int getStation() {
+        return station;
+    }
+
+    public String getAddress() {
+        return address;
     }
 }

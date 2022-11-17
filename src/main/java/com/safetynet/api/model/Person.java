@@ -1,8 +1,6 @@
 package com.safetynet.api.model;
 
-import lombok.Data;
 
-@Data
 public class Person {
 
     private String firstName;
@@ -21,5 +19,28 @@ public class Person {
         this.zip = zip;
         this.phone = phone;
         this.email = email;
+    }
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }

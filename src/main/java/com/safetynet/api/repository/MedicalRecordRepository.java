@@ -2,9 +2,10 @@ package com.safetynet.api.repository;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.safetynet.api.Error.ErrorAlreadyExistException;
+import com.safetynet.api.Error.ErrorNoExistException;
 import com.safetynet.api.model.MedicalRecord;
 import com.safetynet.api.model.Person;
-import lombok.Data;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -15,7 +16,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 
-@Data
 @Repository
 public class MedicalRecordRepository {
 
@@ -63,23 +63,44 @@ public class MedicalRecordRepository {
 
     public String createMedicalRecord(MedicalRecord medicalRecord) {
 
-        medicalRecordMap.put(medicalRecord.getFirstName() + medicalRecord.getLastName(), medicalRecord);
-
-        return "Medical Record Create !!";
+        try {
+            if (!medicalRecordMap.containsKey(medicalRecord.getFirstName() + medicalRecord.getLastName())) {
+                medicalRecordMap.put(medicalRecord.getFirstName() + medicalRecord.getLastName(), medicalRecord);
+                return "Medical Record Create !!";
+            } else {
+                throw new ErrorAlreadyExistException("Medical Record Already Exist !!");
+            }
+        } catch (ErrorAlreadyExistException e) {
+            return "Medical Record Already Exist !!";
+        }
     }
 
     public String updateMedicalRecord(MedicalRecord medicalRecord) {
 
-        medicalRecordMap.put(medicalRecord.getFirstName() + medicalRecord.getLastName(), medicalRecord);
-
-        return "Medical Record Update !!";
+        try {
+            if (medicalRecordMap.containsKey(medicalRecord.getFirstName() + medicalRecord.getLastName())) {
+                medicalRecordMap.put(medicalRecord.getFirstName() + medicalRecord.getLastName(), medicalRecord);
+                return "Medical Record Update !!";
+            } else {
+                throw new ErrorNoExistException("Medical Record doesn't exist !");
+            }
+        } catch (ErrorNoExistException e) {
+            return "Medical Record doesn't exist !";
+        }
     }
 
     public String deleteMedicalRecord(String firstName, String lastName) {
 
-        medicalRecordMap.remove(firstName + lastName);
-
-        return "Medical Record Delete !!";
+        try {
+            if (medicalRecordMap.containsKey(firstName + lastName)) {
+                medicalRecordMap.remove(firstName + lastName);
+                return "Medical Record Delete !!";
+            } else {
+                throw new ErrorNoExistException("Medical Record doesn't exist !");
+            }
+        } catch (ErrorNoExistException e) {
+            return "Medical Record doesn't exist !";
+        }
     }
 
     public MedicalRecord getMedicalRecord(String firstName, String lastName) {

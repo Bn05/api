@@ -1,12 +1,12 @@
 package com.safetynet.api.model;
 
-import lombok.Data;
-
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Data
+
 public class MedicalRecord {
 
     private String firstName;
@@ -22,5 +22,25 @@ public class MedicalRecord {
         this.birthdate = birthdate;
         this.medications = medications;
         this.allergies = allergies;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public LocalDate getBirthdate() {
+        return birthdate;
+    }
+
+    public Map<String, String> getMedications() {
+        return new HashMap<>(medications);
+    }
+
+    public List<String> getAllergies() {
+        return new ArrayList<>(allergies);
     }
 }
