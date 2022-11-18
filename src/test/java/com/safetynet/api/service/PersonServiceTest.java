@@ -143,7 +143,7 @@ class PersonServiceTest {
 
     @Test
     void getEmailByCity() {
-        personRepository.getEmailByCity(any());
+        personService.getEmailByCity(any());
 
         verify(personRepository, times(1)).getEmailByCity(any());
     }
@@ -183,21 +183,21 @@ class PersonServiceTest {
 
     @Test
     void createPerson() {
-        personRepository.createPerson(any());
+        personService.createPerson(any());
 
         verify(personRepository, times(1)).createPerson(any());
     }
 
     @Test
     void updatePerson() {
-        personRepository.updatePerson(any());
+        personService.updatePerson(any());
 
         verify(personRepository, times(1)).updatePerson(any());
     }
 
     @Test
     void deletePerson() {
-        personRepository.deletePerson(any(),any());
+        personService.deletePerson(any(),any());
 
         verify(personRepository, times(1)).deletePerson(any(),any());
     }
