@@ -16,7 +16,10 @@ public class PersonController {
     Logger logger = LoggerFactory.getLogger(PersonController.class);
 
     @Autowired
-    private PersonService personService;
+    PersonService personService;
+
+
+
 
     @PostMapping(value = "/person")
     public String createPerson(@RequestBody Person person) {
@@ -39,18 +42,18 @@ public class PersonController {
     }
 
     @GetMapping(value = "/fire")
-    public Map<String,Object> getPersonMedicalRecordAndStationNumber(@RequestParam(value="address")String address){
+    public Map<String, Object> getPersonMedicalRecordAndStationNumber(@RequestParam(value = "address") String address) {
         return personService.getPersonMedicalRecordAndStationNumber(address);
     }
 
     @GetMapping(value = "/personInfo")
-    public List<Map<String, String>> getPersonInfo (@RequestParam(value = "firstName")String firstName,@RequestParam(value = "lastName")String lastName){
-        return personService.getPersonInfo(firstName,lastName);
+    public List<Map<String, String>> getPersonInfo(@RequestParam(value = "firstName") String firstName, @RequestParam(value = "lastName") String lastName) {
+        return personService.getPersonInfo(firstName, lastName);
     }
 
 
-   @GetMapping(value = "/communityEmail")
-    public List<String> getEmailByCity(@RequestParam(value = "city")String city){
+    @GetMapping(value = "/communityEmail")
+    public List<String> getEmailByCity(@RequestParam(value = "city") String city) {
         return personService.getEmailByCity(city);
     }
 
