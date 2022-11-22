@@ -20,8 +20,8 @@ public class MedicalRecord {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;
-        this.medications = new HashMap<>(medications);
-        this.allergies = new ArrayList<>(allergies);
+        this.medications =medications;
+        this.allergies = allergies;
     }
 
     public String getFirstName() {
@@ -37,10 +37,10 @@ public class MedicalRecord {
     }
 
     public Map<String, String> getMedications() {
-        return new HashMap<>(medications);
+        return new HashMap<>(this.medications);
     }
 
     public List<String> getAllergies() {
-        return new ArrayList<>(allergies);
+        return new ArrayList<>(this.allergies);
     }
 }

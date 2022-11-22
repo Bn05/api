@@ -37,9 +37,6 @@ class MedicalRecordRepositoryTest {
 
         medicalRecordMap.clear();
 
-        ReflectionTestUtils.setField(medicalRecordRepository, "medicalRecordMap", medicalRecordMap);
-
-
         medicalRecordMap.put(key0, medicalRecord0);
 
         medicationMap0.put("medication00", "medic00");
@@ -49,6 +46,8 @@ class MedicalRecordRepositoryTest {
         medicationMap1.put("medication10", "medic10");
         medicationMap1.put("medication11", "medic11");
         allergieMap1.add("allergie1");
+
+        ReflectionTestUtils.setField(medicalRecordRepository, "medicalRecordMap", medicalRecordMap);
 
     }
 

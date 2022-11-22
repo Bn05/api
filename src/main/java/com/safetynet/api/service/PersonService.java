@@ -17,8 +17,6 @@ import java.util.*;
 @Service
 public class PersonService {
 
-    Logger logger = LoggerFactory.getLogger(PersonService.class);
-
 
     @Autowired
     private PersonRepository personRepository;
@@ -28,8 +26,6 @@ public class PersonService {
     private FirestationRepository firestationRepository;
 
     public List<Object> getChildAlertAndFamilyByAddress(String address) {
-
-        logger.info("TESTE des logguer !! !youpoi  ou pas");
 
         List<Person> personList = personRepository.getPersonByAddress(address);
         List<Person> childList = getChild(personList);
