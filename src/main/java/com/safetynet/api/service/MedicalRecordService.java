@@ -23,8 +23,4 @@ public class MedicalRecordService {
         return medicalRecordRepository.deleteMedicalRecord(firstName, lastName);
     }
 
-    public MedicalRecord getMedicalRecord (String firstName, String lastName){
-       return medicalRecordRepository.getMedicalRecord(firstName, lastName);
-    }
-
 }

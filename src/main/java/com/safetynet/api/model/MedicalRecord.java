@@ -20,8 +20,8 @@ public class MedicalRecord {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthdate = birthdate;
-        this.medications = medications;
-        this.allergies = allergies;
+        this.medications = new HashMap<>(medications);
+        this.allergies = new ArrayList<>(allergies);
     }
 
     public String getFirstName() {

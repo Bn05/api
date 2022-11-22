@@ -26,14 +26,13 @@ public class FirestationController {
     }
 
     @GetMapping(value = "flood/stations")
-    public Map<String,List<String>> getFamilyByFireStation (@RequestParam(value = "stations")List<Integer> stations){
+    public Map<String, List<String>> getFamilyByFireStation(@RequestParam(value = "stations") List<Integer> stations) {
         return firestationService.getFamilyByFireStation(stations);
     }
 
     @PostMapping("/firestation")
     public String createFirestation(@RequestBody Firestation firestation) {
         return firestationService.createFirestation(firestation);
-
     }
 
     @PutMapping(value = "/firestation")
@@ -42,10 +41,8 @@ public class FirestationController {
     }
 
     @DeleteMapping(value = "/firestation")
-    public String deleteFirestation(@RequestParam(value = "firestation") Firestation firestation) {
+    public String deleteFirestation(@RequestBody Firestation firestation) {
 
         return firestationService.deleteFirestation(firestation);
     }
-
-
 }

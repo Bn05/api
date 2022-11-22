@@ -25,11 +25,4 @@ public class MedicalRecordController {
     public String deleteMedicalRecord(@RequestParam(value = "firstName") String firstName, @RequestParam(value = "lastName") String lastName) {
         return medicalRecordService.deleteMedicalRecord(firstName, lastName);
     }
-
-    @GetMapping(value = "/medicalRecordby")
-    public MedicalRecord getMedicalRecord (@RequestParam(value = "firstName")String firstName,@RequestParam(value = "lastName")String lastName){
-        return medicalRecordService.getMedicalRecord(firstName, lastName);
-        //TODO : a supprimer
-    }
-
 }

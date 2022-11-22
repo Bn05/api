@@ -27,10 +27,16 @@ public class ApiApplication implements CommandLineRunner {
     MedicalRecordRepository medicalRecordRepository;
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args)  {
 
-        personRepository.readJsonFile();
-        firestationRepository.readJsonFile();
-        medicalRecordRepository.readJsonFile();
+        try {
+            personRepository.readJsonFile();
+            firestationRepository.readJsonFile();
+            medicalRecordRepository.readJsonFile();
+        }catch (Exception e)
+        {
+            System.out.println("ERREUR");
+            //TODO : Ajout log
+        }
     }
 }
