@@ -66,7 +66,7 @@ public class MedicalRecordRepository {
     }
 
     public String createMedicalRecord(MedicalRecord medicalRecord) {
-
+        logger.debug("Call MedicalRecordRepository.createMedicalRecord with param = " + medicalRecord.toString());
         try {
             if (!medicalRecordMap.containsKey(medicalRecord.getFirstName() + medicalRecord.getLastName())) {
                 medicalRecordMap.put(medicalRecord.getFirstName() + medicalRecord.getLastName(), medicalRecord);
@@ -75,12 +75,13 @@ public class MedicalRecordRepository {
                 throw new ErrorAlreadyExistException("Medical Record Already Exist !!");
             }
         } catch (ErrorAlreadyExistException e) {
+            logger.error("Medical Record Already Exist !!");
             return "Medical Record Already Exist !!";
         }
     }
 
     public String updateMedicalRecord(MedicalRecord medicalRecord) {
-
+        logger.debug("Call MedicalRecordRepository.updateMedicalRecord with param = " + medicalRecord.toString());
         try {
             if (medicalRecordMap.containsKey(medicalRecord.getFirstName() + medicalRecord.getLastName())) {
                 medicalRecordMap.put(medicalRecord.getFirstName() + medicalRecord.getLastName(), medicalRecord);
@@ -89,12 +90,13 @@ public class MedicalRecordRepository {
                 throw new ErrorNoExistException("Medical Record doesn't exist !");
             }
         } catch (ErrorNoExistException e) {
+            logger.error("Medical Record doesn't exist !");
             return "Medical Record doesn't exist !";
         }
     }
 
     public String deleteMedicalRecord(String firstName, String lastName) {
-
+        logger.debug("Call MedicalRecordRepository.deleteMedicalRecord with param = " + firstName + "," + lastName);
         try {
             if (medicalRecordMap.containsKey(firstName + lastName)) {
                 medicalRecordMap.remove(firstName + lastName);
@@ -103,11 +105,13 @@ public class MedicalRecordRepository {
                 throw new ErrorNoExistException("Medical Record doesn't exist !");
             }
         } catch (ErrorNoExistException e) {
+            logger.error("Medical Record doesn't exist !");
             return "Medical Record doesn't exist !";
         }
     }
 
     public MedicalRecord getMedicalRecord(String firstName, String lastName) {
+        logger.debug("Call MedicalRecordRepository.getMedicalRecord with param = " + firstName + "," + lastName);
         return medicalRecordMap.get(firstName + lastName);
     }
 
@@ -137,11 +141,12 @@ public class MedicalRecordRepository {
     }
 
     public List<String> getAllergie(String firstName, String lastName) {
-
+        logger.debug("Call MedicalRecordRepository.getAllergie with param = " + firstName + "," + lastName);
         return getMedicalRecord(firstName, lastName).getAllergies();
     }
 
     public Map<String, String> getMedication(String firstName, String lastName) {
+        logger.debug("Call MedicalRecordRepository.getMedication with param = " + firstName + "," + lastName);
 
         return getMedicalRecord(firstName, lastName).getMedications();
     }

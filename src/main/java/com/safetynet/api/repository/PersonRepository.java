@@ -47,6 +47,7 @@ public class PersonRepository {
     }
 
     public String createPerson(Person person) {
+        logger.debug("Call PersonRepository.createPerson with parma = " + person.toString());
         try {
             if (!personMap.containsValue(person)) {
                 personMap.put(person.getFirstName() + person.getLastName(), person);
@@ -55,6 +56,7 @@ public class PersonRepository {
                 throw new ErrorAlreadyExistException("Person Already Exist !");
             }
         } catch (ErrorAlreadyExistException e) {
+            logger.error("Person Already Exist !");
             return "Person Already Exist !";
         }
 
@@ -62,7 +64,7 @@ public class PersonRepository {
     }
 
     public String updatePerson(Person person) {
-
+        logger.debug("Call PersonRepository.updatePerson with parma = " + person.toString());
         try {
             if (personMap.containsKey(person.getFirstName() + person.getLastName())) {
                 personMap.put(person.getFirstName() + person.getLastName(), person);
@@ -71,12 +73,13 @@ public class PersonRepository {
                 throw new ErrorNoExistException("Person doesn't Exist !");
             }
         } catch (ErrorNoExistException e) {
+            logger.error("Person doesn't Exist !");
             return "Person doesn't Exist !";
         }
     }
 
     public String deletePerson(String firstName, String lastName) {
-
+        logger.debug("Call PersonRepository.updatePerson with parma = " + firstName + "," + lastName);
         try {
             if (personMap.containsKey(firstName + lastName)) {
                 personMap.remove(firstName + lastName);
@@ -85,6 +88,7 @@ public class PersonRepository {
                 throw new ErrorNoExistException("Person doesn't Exist !");
             }
         } catch (ErrorNoExistException e) {
+            logger.error("Person doesn't Exist !");
             return "Person doesn't Exist !";
         }
     }

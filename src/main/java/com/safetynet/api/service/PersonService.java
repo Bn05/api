@@ -38,7 +38,7 @@ public class PersonService {
         List<Object> childInfoList = new ArrayList<>();
         for (Person child : childList) {
             List<Person> family = getFamily(child);
-            logger.debug("Response to PersonService.getFamily : " + family.toString());
+            logger.debug("Response to PersonService.getFamily : " + family);
 
             List<Object> familyLite = new ArrayList<>();
             for (Person familymember : family) {
