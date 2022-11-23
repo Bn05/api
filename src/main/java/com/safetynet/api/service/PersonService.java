@@ -91,7 +91,7 @@ public class PersonService {
             personMap.put("medications", medicationMap);
 
             personLiteList.add(personMap);
-            logger.debug("personMap = "+personMap);
+            logger.debug("personMap = " + personMap);
         }
 
         Map<String, Object> objectMap = new LinkedHashMap<>();
@@ -103,16 +103,14 @@ public class PersonService {
     }
 
     public List<String> getEmailByCity(String city) {
-        logger.debug("Call PersonService.getEmailByCity with param : "+city);
+        logger.debug("Call PersonService.getEmailByCity with param : " + city);
         List<String> returnListString = personRepository.getEmailByCity(city);
-        logger.debug("Response to personRepository.getEmailByCity : "+returnListString.toString());
+        logger.debug("Response to personRepository.getEmailByCity : " + returnListString.toString());
         return returnListString;
     }
 
     public List<Map<String, String>> getPersonInfo(String firstName, String lastNAme) {
-
-        logger.debug("Call PersonService.getPersonInfo with param = "+firstName+","+lastNAme);
-
+        logger.debug("Call PersonService.getPersonInfo with param = " + firstName + "," + lastNAme);
         List<Person> personList = new ArrayList<>(personRepository.getPersonMap().values());
 
         List<Map<String, String>> peronResultList = new ArrayList<>();
@@ -127,6 +125,7 @@ public class PersonService {
                 personMap.put("medications", medicalRecordRepository.getMedication(firstName, lastNAme).toString());
                 personMap.put("allergies", medicalRecordRepository.getAllergie(firstName, lastNAme).toString());
                 peronResultList.add(personMap);
+                logger.debug("personMap : "+personMap);
             }
         }
         return peronResultList;
@@ -134,7 +133,9 @@ public class PersonService {
 
     public String createPerson(Person person) {
         logger.debug("Call personService.createPerson() with param : " + person);
-        return personRepository.createPerson(person);
+        String returnString = personRepository.createPerson(person);
+        logger.debug("Response to personRepository.createPerson : "+returnString);
+        return returnString;
     }
 
     public String updatePerson(Person person) {
@@ -145,7 +146,9 @@ public class PersonService {
 
     public String deletePerson(String firstName, String lastName) {
         logger.debug("Call personService.deletePerson() with param : " + firstName + "," + lastName);
-        return personRepository.deletePerson(firstName, lastName);
+       String returnString = personRepository.deletePerson(firstName, lastName);
+       logger.info("Response to personRepository.deletePerson : "+returnString);
+       return returnString;
     }
 
     public List<Person> getChild(List<Person> personList) {
@@ -159,6 +162,7 @@ public class PersonService {
                 childList.add(person);
             }
         }
+        logger.debug("childList : "+childList);
         return childList;
     }
 
@@ -174,6 +178,7 @@ public class PersonService {
                 }
             }
         }
+        logger.debug("family : "+family);
         return family;
     }
 }

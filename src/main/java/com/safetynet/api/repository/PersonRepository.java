@@ -94,7 +94,7 @@ public class PersonRepository {
     }
 
     public List<Person> getPersonByStation(Firestation firestation) {
-
+        logger.debug("Call personRepository.getPersonByStation with param = " + firestation.toString());
         List<Person> personList = new ArrayList<>(personMap.values());
         List<Person> personSelectList = new ArrayList<>();
 
@@ -120,7 +120,7 @@ public class PersonRepository {
     }
 
     public List<String> getEmailByCity(String city) {
-        logger.debug("Call personRepository.getEmailByCity with param : "+city);
+        logger.debug("Call personRepository.getEmailByCity with param : " + city);
         List<Person> personList = new ArrayList<>(personMap.values());
 
         List<String> emailList = new ArrayList<>();

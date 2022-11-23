@@ -115,7 +115,9 @@ public class MedicalRecordRepository {
         return medicalRecordMap.get(firstName + lastName);
     }
 
+
     public Map<String, Integer> countAdultAndChild(List<Person> personList) {
+        logger.debug("Call medicalRecordRepository.countAdultAndChild with param = " + personList.toString());
 
         Map<String, Integer> listCount = new HashMap<>();
         listCount.put("Adult", 0);
@@ -134,7 +136,7 @@ public class MedicalRecordRepository {
 
     public Period getAge(Person person) {
 
-        logger.debug("Call MedicalRecordRepository.getAge with param = "+person);
+        logger.debug("Call MedicalRecordRepository.getAge with param = " + person);
         LocalDate now = LocalDate.now();
         LocalDate birthdate = getMedicalRecord(person.getFirstName(), person.getLastName()).getBirthdate();
         return Period.between(birthdate, now);

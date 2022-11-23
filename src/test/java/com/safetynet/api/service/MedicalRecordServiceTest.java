@@ -44,10 +44,12 @@ class MedicalRecordServiceTest {
         verify(medicalRecordRepository, times(1)).deleteMedicalRecord(any(),any());
     }
 
-    @Test
+   /* @Test
     void getMedicalRecord() {
         medicalRecordService.getMedicalRecord(medicalRecord.getFirstName(),medicalRecord.getLastName());
 
         verify(medicalRecordRepository, times(1)).getMedicalRecord(any(),any());
     }
+
+    */
 }

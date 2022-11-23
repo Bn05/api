@@ -42,6 +42,7 @@ public class FirestationRepository {
     }
 
     public String createFirestation(Firestation firestation) {
+        logger.debug("Call FirestationRepository.createFirestation witn param = " + firestation.toString());
         try {
             if (!firestationMap.containsKey(firestation.getAddress())) {
                 firestationMap.put(firestation.getAddress(), firestation);
@@ -50,11 +51,13 @@ public class FirestationRepository {
                 throw new ErrorAlreadyExistException("Firestation Already exist");
             }
         } catch (ErrorAlreadyExistException e) {
+            logger.error("Firestation already exist");
             return "Firestation already exist";
         }
     }
 
     public String deleteFirestation(Firestation firestation) {
+        logger.debug("Call FirestationRepository.deleteFirestation witn param = " + firestation.toString());
         try {
             if (firestationMap.containsKey(firestation.getAddress())) {
 
@@ -65,11 +68,13 @@ public class FirestationRepository {
                 throw new ErrorNoExistException("Firestation doesn't exist !");
             }
         } catch (ErrorNoExistException e) {
+            logger.error("Firestation doesn't exist !");
             return "Firestation doesn't exist !";
         }
     }
 
     public String updateFiresation(Firestation firestation) {
+        logger.debug("Call FirestationRepository.updateFiresation witn param = " + firestation.toString());
         try {
             if (firestationMap.containsKey(firestation.getAddress())) {
                 firestationMap.put(firestation.getAddress(), firestation);
@@ -78,12 +83,13 @@ public class FirestationRepository {
                 throw new ErrorNoExistException("Firestation doesn't exist !");
             }
         } catch (ErrorNoExistException e) {
+            logger.error("Firestation doesn't exist !");
             return "Firestation doesn't exist !";
         }
     }
 
     public Firestation getFirestationByAddress(String address) {
-        logger.debug("Call firestationRepository.getFirestationByAddress with param = "+address);
+        logger.debug("Call firestationRepository.getFirestationByAddress with param = " + address);
 
         List<Firestation> firestationList = new ArrayList<>(firestationMap.values());
         for (Firestation firestation : firestationList) {
@@ -95,6 +101,7 @@ public class FirestationRepository {
     }
 
     public List<Firestation> getFirestationsByNumber(int stationNumber) {
+        logger.debug("Call firestationRepository.getFirestationsByNumber with param = " + stationNumber);
 
         List<Firestation> firestationList = new ArrayList<>(firestationMap.values());
         List<Firestation> firestationSelectList = new ArrayList<>();
