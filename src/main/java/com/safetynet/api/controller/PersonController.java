@@ -21,11 +21,8 @@ public class PersonController {
     @PostMapping(value = "/person")
     public String createPerson(@RequestBody Person person) {
         logger.info("Request post/person with this body request : " + person.toString());
-
         String returnString = personService.createPerson(person);
-
         logger.info("Response to post/person : " + returnString);
-
         return returnString;
     }
 
@@ -40,9 +37,9 @@ public class PersonController {
 
     @DeleteMapping(value = "/person")
     public String deletePerson(@RequestParam(value = "firstName") String firstName, @RequestParam(value = "lastName") String lastName) {
-        logger.info("Request to delete/person with this param firstName = "+firstName+" and lastName = "+lastName);
+        logger.info("Request to delete/person with this param firstName = " + firstName + " and lastName = " + lastName);
         String returnString = personService.deletePerson(firstName, lastName);
-        logger.info("Response to delete/person : "+returnString);
+        logger.info("Response to delete/person : " + returnString);
         return returnString;
     }
 
@@ -61,11 +58,11 @@ public class PersonController {
     @GetMapping(value = "/fire")
     public Map<String, Object> getPersonMedicalRecordAndStationNumber(@RequestParam(value = "address") String address) {
 
-        logger.info("Request to get/fire with param address = "+address);
+        logger.info("Request to get/fire with param address = " + address);
 
         Map<String, Object> returnMap = personService.getPersonMedicalRecordAndStationNumber(address);
 
-        logger.info("Response to get/fire : "+returnMap);
+        logger.info("Response to get/fire : " + returnMap);
 
         return returnMap;
 
@@ -74,18 +71,18 @@ public class PersonController {
     @GetMapping(value = "/personInfo")
     public List<Map<String, String>> getPersonInfo(@RequestParam(value = "firstName") String firstName, @RequestParam(value = "lastName") String lastName) {
 
-        logger.info("Request to get /personInfo with param firstName = "+firstName+" and lastName = "+lastName);
+        logger.info("Request to get /personInfo with param firstName = " + firstName + " and lastName = " + lastName);
         List<Map<String, String>> returnList = personService.getPersonInfo(firstName, lastName);
-        logger.info("Response to get/personInfo : "+returnList);
+        logger.info("Response to get/personInfo : " + returnList);
         return returnList;
     }
 
 
     @GetMapping(value = "/communityEmail")
     public List<String> getEmailByCity(@RequestParam(value = "city") String city) {
-        logger.info("Request to get/communityEmail with param city = "+city);
+        logger.info("Request to get/communityEmail with param city = " + city);
         List<String> returnList = personService.getEmailByCity(city);
-        logger.info("Response to get/communityEmail : "+returnList);
+        logger.info("Response to get/communityEmail : " + returnList);
         return returnList;
     }
 
