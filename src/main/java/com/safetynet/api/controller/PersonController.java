@@ -45,11 +45,8 @@ public class PersonController {
 
     @GetMapping(value = "/childAlert")
     public List<Object> childAlertAndFamilyByAdress(@RequestParam(value = "address") String address) {
-
         logger.info("Request get /childAlert with param address = " + address);
-
         List<Object> returnList = personService.getChildAlertAndFamilyByAddress(address);
-
         logger.info("Response to get /childAlert : " + returnList.toString());
         return returnList;
 

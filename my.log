@@ -1,0 +1,120 @@
+2022-11-23 10:44:13.351  INFO 22916 --- [main] c.s.a.r.FirestationRepositoryTest        : Starting FirestationRepositoryTest using Java 18 on DESKTOP-R2DIIID with PID 22916 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
+2022-11-23 10:44:13.352  INFO 22916 --- [main] c.s.a.r.FirestationRepositoryTest        : No active profile set, falling back to 1 default profile: "default"
+2022-11-23 10:44:15.529  INFO 22916 --- [main] c.s.a.r.FirestationRepositoryTest        : Started FirestationRepositoryTest in 2.432 seconds (JVM running for 3.426)
+2022-11-23 10:44:16.148  INFO 22916 --- [main] c.s.a.c.MedicalRecordControllerTest      : Starting MedicalRecordControllerTest using Java 18 on DESKTOP-R2DIIID with PID 22916 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
+2022-11-23 10:44:16.149  INFO 22916 --- [main] c.s.a.c.MedicalRecordControllerTest      : No active profile set, falling back to 1 default profile: "default"
+2022-11-23 10:44:16.962  INFO 22916 --- [main] c.s.a.c.MedicalRecordControllerTest      : Started MedicalRecordControllerTest in 0.832 seconds (JVM running for 4.858)
+2022-11-23 10:44:17.057  INFO 22916 --- [main] c.s.a.c.MedicalRecordController          : Request to put/medicalRecord with body param : com.safetynet.api.model.MedicalRecord@7977f046
+2022-11-23 10:44:17.059  INFO 22916 --- [main] c.s.a.c.MedicalRecordController          : Response to put/medicalRecord : null
+2022-11-23 10:44:17.077  INFO 22916 --- [main] c.s.a.c.MedicalRecordController          : Request to post/medicalRecord with body param = com.safetynet.api.model.MedicalRecord@5897aae1
+2022-11-23 10:44:17.077  INFO 22916 --- [main] c.s.a.c.MedicalRecordController          : Response to post/medicalRecord : null
+2022-11-23 10:44:17.085  INFO 22916 --- [main] c.s.a.c.MedicalRecordController          : Request to delete/medicalRecord with param firstName = firstName and lastName = lastName
+2022-11-23 10:44:17.086  INFO 22916 --- [main] c.s.a.c.MedicalRecordController          : Response to delete/medicalRecort : OK
+2022-11-23 10:44:17.110  INFO 22916 --- [main] c.s.api.controller.PersonControllerTest  : Starting PersonControllerTest using Java 18 on DESKTOP-R2DIIID with PID 22916 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
+2022-11-23 10:44:17.111  INFO 22916 --- [main] c.s.api.controller.PersonControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2022-11-23 10:44:17.810  INFO 22916 --- [main] c.s.api.controller.PersonControllerTest  : Started PersonControllerTest in 0.714 seconds (JVM running for 5.707)
+2022-11-23 10:44:17.825  INFO 22916 --- [main] c.s.api.controller.PersonController      : Request put/person with this body request :com.safetynet.api.model.Person@37b470df
+2022-11-23 10:44:17.825  INFO 22916 --- [main] c.s.api.controller.PersonController      : Response to put/person : OK
+2022-11-23 10:44:17.832  INFO 22916 --- [main] c.s.api.controller.PersonController      : Request to delete/person with this param firstName = firstName0 and lastName = lastName0
+2022-11-23 10:44:17.832  INFO 22916 --- [main] c.s.api.controller.PersonController      : Response to delete/person : OK
+2022-11-23 10:44:17.838  INFO 22916 --- [main] c.s.api.controller.PersonController      : Request to get/fire with param address = address
+2022-11-23 10:44:17.838  INFO 22916 --- [main] c.s.api.controller.PersonController      : Response to get/fire : {}
+2022-11-23 10:44:17.849  INFO 22916 --- [main] c.s.api.controller.PersonController      : Request to get /personInfo with param firstName = firstName and lastName = lastName
+2022-11-23 10:44:17.850  INFO 22916 --- [main] c.s.api.controller.PersonController      : Response to get/personInfo : []
+2022-11-23 10:44:17.858  INFO 22916 --- [main] c.s.api.controller.PersonController      : Request to get/communityEmail with param city = city
+2022-11-23 10:44:17.859  INFO 22916 --- [main] c.s.api.controller.PersonController      : Response to get/communityEmail : []
+2022-11-23 10:44:17.866  INFO 22916 --- [main] c.s.api.controller.PersonController      : Request get /childAlert with param address = address
+2022-11-23 10:44:17.866  INFO 22916 --- [main] c.s.api.controller.PersonController      : Response to get /childAlert : []
+2022-11-23 10:44:17.874  INFO 22916 --- [main] c.s.api.controller.PersonController      : Request post/person with this body request : com.safetynet.api.model.Person@a2fb8a5
+2022-11-23 10:44:17.874  INFO 22916 --- [main] c.s.api.controller.PersonController      : Response to post/person : OK
+2022-11-23 10:44:17.951  INFO 22916 --- [main] c.s.a.c.FirestationControllerTest        : Starting FirestationControllerTest using Java 18 on DESKTOP-R2DIIID with PID 22916 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
+2022-11-23 10:44:17.951  INFO 22916 --- [main] c.s.a.c.FirestationControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-11-23 10:44:18.507  INFO 22916 --- [main] c.s.a.c.FirestationControllerTest        : Started FirestationControllerTest in 0.571 seconds (JVM running for 6.405)
+2022-11-23 10:44:18.521  INFO 22916 --- [main] c.s.a.controller.FirestationController   : Request to put/firestation with body param = com.safetynet.api.model.Firestation@4d90d91f
+2022-11-23 10:44:18.522  INFO 22916 --- [main] c.s.a.controller.FirestationController   : Response to put/firestation : ok
+2022-11-23 10:44:18.529  INFO 22916 --- [main] c.s.a.controller.FirestationController   : Request get/phoneAlert with param firestation = 0
+2022-11-23 10:44:18.529  INFO 22916 --- [main] c.s.a.controller.FirestationController   : Response to get/phoneAlert : []
+2022-11-23 10:44:18.534  INFO 22916 --- [main] c.s.a.controller.FirestationController   : Request get/firestation with param stationNumber = 0
+2022-11-23 10:44:18.535  INFO 22916 --- [main] c.s.a.controller.FirestationController   : Response to get/firestation : []
+2022-11-23 10:44:18.540  INFO 22916 --- [main] c.s.a.controller.FirestationController   : Request to delete/firestation with body param = com.safetynet.api.model.Firestation@1642968c
+2022-11-23 10:44:18.540  INFO 22916 --- [main] c.s.a.controller.FirestationController   : Response to delete/firestation : ok
+2022-11-23 10:44:18.545  INFO 22916 --- [main] c.s.a.controller.FirestationController   : Request post/firestation with body request = com.safetynet.api.model.Firestation@50b4e7b2
+2022-11-23 10:44:18.545  INFO 22916 --- [main] c.s.a.controller.FirestationController   : Response to post/firestation : ok
+2022-11-23 10:44:18.549  INFO 22916 --- [main] c.s.a.controller.FirestationController   : Request get/flood/stations with param stations = [1, 2]
+2022-11-23 10:44:18.549  INFO 22916 --- [main] c.s.a.controller.FirestationController   : Response to get/flood/stations : {}
+2022-11-23 11:02:52.224  INFO 23412 --- [main] c.s.a.r.FirestationRepositoryTest        : Starting FirestationRepositoryTest using Java 18 on DESKTOP-R2DIIID with PID 23412 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
+2022-11-23 11:02:52.226  INFO 23412 --- [main] c.s.a.r.FirestationRepositoryTest        : No active profile set, falling back to 1 default profile: "default"
+2022-11-23 11:02:54.424  INFO 23412 --- [main] c.s.a.r.FirestationRepositoryTest        : Started FirestationRepositoryTest in 2.473 seconds (JVM running for 3.61)
+2022-11-23 11:02:55.006  INFO 23412 --- [main] c.s.a.c.MedicalRecordControllerTest      : Starting MedicalRecordControllerTest using Java 18 on DESKTOP-R2DIIID with PID 23412 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
+2022-11-23 11:02:55.006  INFO 23412 --- [main] c.s.a.c.MedicalRecordControllerTest      : No active profile set, falling back to 1 default profile: "default"
+2022-11-23 11:02:55.889  INFO 23412 --- [main] c.s.a.c.MedicalRecordControllerTest      : Started MedicalRecordControllerTest in 0.911 seconds (JVM running for 5.075)
+2022-11-23 11:02:55.995  INFO 23412 --- [main] c.s.a.c.MedicalRecordController          : Request to put/medicalRecord with body param : com.safetynet.api.model.MedicalRecord@32428874
+2022-11-23 11:02:55.996  INFO 23412 --- [main] c.s.a.c.MedicalRecordController          : Response to put/medicalRecord : null
+2022-11-23 11:02:56.016  INFO 23412 --- [main] c.s.a.c.MedicalRecordController          : Request to post/medicalRecord with body param = com.safetynet.api.model.MedicalRecord@4caf875c
+2022-11-23 11:02:56.016  INFO 23412 --- [main] c.s.a.c.MedicalRecordController          : Response to post/medicalRecord : null
+2022-11-23 11:02:56.024  INFO 23412 --- [main] c.s.a.c.MedicalRecordController          : Request to delete/medicalRecord with param firstName = firstName and lastName = lastName
+2022-11-23 11:02:56.025  INFO 23412 --- [main] c.s.a.c.MedicalRecordController          : Response to delete/medicalRecort : OK
+2022-11-23 11:02:56.052  INFO 23412 --- [main] c.s.api.controller.PersonControllerTest  : Starting PersonControllerTest using Java 18 on DESKTOP-R2DIIID with PID 23412 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
+2022-11-23 11:02:56.053  INFO 23412 --- [main] c.s.api.controller.PersonControllerTest  : No active profile set, falling back to 1 default profile: "default"
+2022-11-23 11:02:56.737  INFO 23412 --- [main] c.s.api.controller.PersonControllerTest  : Started PersonControllerTest in 0.702 seconds (JVM running for 5.923)
+2022-11-23 11:02:56.752  INFO 23412 --- [main] c.s.api.controller.PersonController      : Request put/person with this body request :com.safetynet.api.model.Person@2520010e
+2022-11-23 11:02:56.752  INFO 23412 --- [main] c.s.api.controller.PersonController      : Response to put/person : OK
+2022-11-23 11:02:56.759  INFO 23412 --- [main] c.s.api.controller.PersonController      : Request to delete/person with this param firstName = firstName0 and lastName = lastName0
+2022-11-23 11:02:56.760  INFO 23412 --- [main] c.s.api.controller.PersonController      : Response to delete/person : OK
+2022-11-23 11:02:56.766  INFO 23412 --- [main] c.s.api.controller.PersonController      : Request to get/fire with param address = address
+2022-11-23 11:02:56.766  INFO 23412 --- [main] c.s.api.controller.PersonController      : Response to get/fire : {}
+2022-11-23 11:02:56.776  INFO 23412 --- [main] c.s.api.controller.PersonController      : Request to get /personInfo with param firstName = firstName and lastName = lastName
+2022-11-23 11:02:56.777  INFO 23412 --- [main] c.s.api.controller.PersonController      : Response to get/personInfo : []
+2022-11-23 11:02:56.782  INFO 23412 --- [main] c.s.api.controller.PersonController      : Request to get/communityEmail with param city = city
+2022-11-23 11:02:56.784  INFO 23412 --- [main] c.s.api.controller.PersonController      : Response to get/communityEmail : []
+2022-11-23 11:02:56.789  INFO 23412 --- [main] c.s.api.controller.PersonController      : Request get /childAlert with param address = address
+2022-11-23 11:02:56.790  INFO 23412 --- [main] c.s.api.controller.PersonController      : Response to get /childAlert : []
+2022-11-23 11:02:56.796  INFO 23412 --- [main] c.s.api.controller.PersonController      : Request post/person with this body request : com.safetynet.api.model.Person@2f4545c6
+2022-11-23 11:02:56.797  INFO 23412 --- [main] c.s.api.controller.PersonController      : Response to post/person : OK
+2022-11-23 11:02:56.879  INFO 23412 --- [main] c.s.a.c.FirestationControllerTest        : Starting FirestationControllerTest using Java 18 on DESKTOP-R2DIIID with PID 23412 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
+2022-11-23 11:02:56.879  INFO 23412 --- [main] c.s.a.c.FirestationControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-11-23 11:02:57.501  INFO 23412 --- [main] c.s.a.c.FirestationControllerTest        : Started FirestationControllerTest in 0.635 seconds (JVM running for 6.686)
+2022-11-23 11:02:57.512  INFO 23412 --- [main] c.s.a.controller.FirestationController   : Request to put/firestation with body param = com.safetynet.api.model.Firestation@53dbe7b2
+2022-11-23 11:02:57.513  INFO 23412 --- [main] c.s.a.controller.FirestationController   : Response to put/firestation : ok
+2022-11-23 11:02:57.521  INFO 23412 --- [main] c.s.a.controller.FirestationController   : Request get/phoneAlert with param firestation = 0
+2022-11-23 11:02:57.521  INFO 23412 --- [main] c.s.a.controller.FirestationController   : Response to get/phoneAlert : []
+2022-11-23 11:02:57.527  INFO 23412 --- [main] c.s.a.controller.FirestationController   : Request get/firestation with param stationNumber = 0
+2022-11-23 11:02:57.528  INFO 23412 --- [main] c.s.a.controller.FirestationController   : Response to get/firestation : []
+2022-11-23 11:02:57.534  INFO 23412 --- [main] c.s.a.controller.FirestationController   : Request to delete/firestation with body param = com.safetynet.api.model.Firestation@77d58f3a
+2022-11-23 11:02:57.534  INFO 23412 --- [main] c.s.a.controller.FirestationController   : Response to delete/firestation : ok
+2022-11-23 11:02:57.539  INFO 23412 --- [main] c.s.a.controller.FirestationController   : Request post/firestation with body request = com.safetynet.api.model.Firestation@738ed8f5
+2022-11-23 11:02:57.540  INFO 23412 --- [main] c.s.a.controller.FirestationController   : Response to post/firestation : ok
+2022-11-23 11:02:57.544  INFO 23412 --- [main] c.s.a.controller.FirestationController   : Request get/flood/stations with param stations = [1, 2]
+2022-11-23 11:02:57.545  INFO 23412 --- [main] c.s.a.controller.FirestationController   : Response to get/flood/stations : {}
+2022-11-23 11:03:16.098  INFO 3816 --- [main] com.safetynet.api.ApiApplication         : Starting ApiApplication using Java 18 on DESKTOP-R2DIIID with PID 3816 (C:\Users\Bertrand\Google Drive\Openclassroom\P5\api\target\classes started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
+2022-11-23 11:03:16.100  INFO 3816 --- [main] com.safetynet.api.ApiApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-11-23 11:03:16.990  INFO 3816 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-23 11:03:17.649  INFO 3816 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-23 11:03:17.658  INFO 3816 --- [main] com.safetynet.api.ApiApplication         : Started ApiApplication in 1.845 seconds (JVM running for 2.29)
+2022-11-23 11:03:39.936  INFO 3816 --- [http-nio-8080-exec-1] c.s.api.controller.PersonController      : Request get /childAlert with param address = 1509 Culver St
+2022-11-23 11:03:39.938  INFO 3816 --- [http-nio-8080-exec-1] c.s.api.controller.PersonController      : Response to get /childAlert : [{FirstName=Roger, LastName=Boyd, Age=5, Family=[{firstName=Jacob, lastName=Boyd}, {firstName=Tenley, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}, {FirstName=Tenley, LastName=Boyd, Age=10, Family=[{firstName=Roger, lastName=Boyd}, {firstName=Jacob, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}]
+2022-11-23 11:04:16.051  INFO 20880 --- [main] com.safetynet.api.ApiApplication         : Starting ApiApplication using Java 18 on DESKTOP-R2DIIID with PID 20880 (C:\Users\Bertrand\Google Drive\Openclassroom\P5\api\target\classes started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
+2022-11-23 11:04:16.053 DEBUG 20880 --- [main] com.safetynet.api.ApiApplication         : Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-11-23 11:04:16.054  INFO 20880 --- [main] com.safetynet.api.ApiApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-11-23 11:04:16.977  INFO 20880 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-23 11:04:17.868  INFO 20880 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-23 11:04:17.888  INFO 20880 --- [main] com.safetynet.api.ApiApplication         : Started ApiApplication in 2.182 seconds (JVM running for 2.653)
+2022-11-23 11:04:41.085  INFO 20880 --- [http-nio-8080-exec-3] c.s.api.controller.PersonController      : Request get /childAlert with param address = 1509 Culver St
+2022-11-23 11:04:41.085 DEBUG 20880 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Call personService.getChildAlertAndFamilyByAddress with param : 1509 Culver St
+2022-11-23 11:04:41.086 DEBUG 20880 --- [http-nio-8080-exec-3] c.s.api.repository.PersonRepository      : Call PersonRepository.getPersonByAddress with param = 1509 Culver St
+2022-11-23 11:04:41.086 DEBUG 20880 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response PersonRepository.getPersonByAddress = [com.safetynet.api.model.Person@1d4a21f8, com.safetynet.api.model.Person@7e54f269, com.safetynet.api.model.Person@58ecdb67, com.safetynet.api.model.Person@60310568, com.safetynet.api.model.Person@2cb8bd77]
+2022-11-23 11:04:41.086 DEBUG 20880 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Call PersonService.getChild with param = [com.safetynet.api.model.Person@1d4a21f8, com.safetynet.api.model.Person@7e54f269, com.safetynet.api.model.Person@58ecdb67, com.safetynet.api.model.Person@60310568, com.safetynet.api.model.Person@2cb8bd77]
+2022-11-23 11:04:41.086 DEBUG 20880 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@1d4a21f8
+2022-11-23 11:04:41.087 DEBUG 20880 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 5
+2022-11-23 11:04:41.087 DEBUG 20880 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@7e54f269
+2022-11-23 11:04:41.087 DEBUG 20880 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 33
+2022-11-23 11:04:41.087 DEBUG 20880 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@58ecdb67
+2022-11-23 11:04:41.088 DEBUG 20880 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 10
+2022-11-23 11:04:41.088 DEBUG 20880 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@60310568
+2022-11-23 11:04:41.088 DEBUG 20880 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 38
+2022-11-23 11:04:41.088 DEBUG 20880 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@2cb8bd77
+2022-11-23 11:04:41.088 DEBUG 20880 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 36
+2022-11-23 11:04:41.088 DEBUG 20880 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response to PersonService.getChild : [com.safetynet.api.model.Person@1d4a21f8, com.safetynet.api.model.Person@58ecdb67]
+2022-11-23 11:04:41.088 DEBUG 20880 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@1d4a21f8
+2022-11-23 11:04:41.088 DEBUG 20880 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@58ecdb67
+2022-11-23 11:04:41.088  INFO 20880 --- [http-nio-8080-exec-3] c.s.api.controller.PersonController      : Response to get /childAlert : [{FirstName=Roger, LastName=Boyd, Age=5, Family=[{firstName=Jacob, lastName=Boyd}, {firstName=Tenley, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}, {FirstName=Tenley, LastName=Boyd, Age=10, Family=[{firstName=Roger, lastName=Boyd}, {firstName=Jacob, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}]

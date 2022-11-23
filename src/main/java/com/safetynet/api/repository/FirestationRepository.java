@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.safetynet.api.Error.ErrorAlreadyExistException;
 import com.safetynet.api.Error.ErrorNoExistException;
 import com.safetynet.api.model.Firestation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -17,6 +19,8 @@ import java.util.Map;
 
 @Repository
 public class FirestationRepository {
+
+    Logger logger = LoggerFactory.getLogger(FirestationRepository.class);
 
     private Map<String, Firestation> firestationMap = new HashMap<>();
 
@@ -79,6 +83,7 @@ public class FirestationRepository {
     }
 
     public Firestation getFirestationByAddress(String address) {
+        logger.debug("Call firestationRepository.getFirestationByAddress with param = "+address);
 
         List<Firestation> firestationList = new ArrayList<>(firestationMap.values());
         for (Firestation firestation : firestationList) {

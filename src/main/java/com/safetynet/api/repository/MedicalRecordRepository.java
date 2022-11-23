@@ -6,6 +6,8 @@ import com.safetynet.api.Error.ErrorAlreadyExistException;
 import com.safetynet.api.Error.ErrorNoExistException;
 import com.safetynet.api.model.MedicalRecord;
 import com.safetynet.api.model.Person;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -18,6 +20,8 @@ import java.util.*;
 
 @Repository
 public class MedicalRecordRepository {
+
+    Logger logger = LoggerFactory.getLogger(MedicalRecordRepository.class);
 
     private Map<String, MedicalRecord> medicalRecordMap = new HashMap<>();
 
@@ -126,6 +130,7 @@ public class MedicalRecordRepository {
 
     public Period getAge(Person person) {
 
+        logger.debug("Call MedicalRecordRepository.getAge with param = "+person);
         LocalDate now = LocalDate.now();
         LocalDate birthdate = getMedicalRecord(person.getFirstName(), person.getLastName()).getBirthdate();
         return Period.between(birthdate, now);

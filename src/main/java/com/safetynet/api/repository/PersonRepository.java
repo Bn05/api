@@ -6,6 +6,8 @@ import com.safetynet.api.Error.ErrorAlreadyExistException;
 import com.safetynet.api.Error.ErrorNoExistException;
 import com.safetynet.api.model.Firestation;
 import com.safetynet.api.model.Person;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -19,13 +21,13 @@ import java.util.Map;
 @Repository
 public class PersonRepository {
 
-
+    Logger logger = LoggerFactory.getLogger(PersonRepository.class);
 
     private Map<String, Person> personMap = new HashMap<>();
 
     public Map<String, Person> getPersonMap() {
 
-       return new HashMap<>(personMap);
+        return new HashMap<>(personMap);
 
     }
 
@@ -102,10 +104,9 @@ public class PersonRepository {
     }
 
     public List<Person> getPersonByAddress(String address) {
-
+        logger.debug("Call PersonRepository.getPersonByAddress with param = " + address);
         List<Person> personList = new ArrayList<>(personMap.values());
         List<Person> personSelectList = new ArrayList<>();
-
         for (Person person : personList) {
             if (address.equals(person.getAddress())) {
                 personSelectList.add(person);
@@ -115,6 +116,7 @@ public class PersonRepository {
     }
 
     public List<String> getEmailByCity(String city) {
+        logger.debug("Call personRepository.getEmailByCity with param : "+city);
         List<Person> personList = new ArrayList<>(personMap.values());
 
         List<String> emailList = new ArrayList<>();
