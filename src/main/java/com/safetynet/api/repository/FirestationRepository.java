@@ -41,12 +41,6 @@ public class FirestationRepository {
         }
     }
 
-    /**
-     * Add Firestation to the List
-     *
-     * @param firestation
-     * @return "Firestation add !" if creation is successful or "Firestation already exist"
-     */
     public String createFirestation(Firestation firestation) {
         logger.debug("Call FirestationRepository.createFirestation witn param = " + firestation.toString());
         try {
@@ -62,12 +56,6 @@ public class FirestationRepository {
         }
     }
 
-    /**
-     * Delete Firestation to the List.
-     *
-     * @param firestation
-     * @return "Firestation delete !" if deletion is successful or "Firestation doesn't exist !"
-     */
     public String deleteFirestation(Firestation firestation) {
         logger.debug("Call FirestationRepository.deleteFirestation witn param = " + firestation.toString());
         try {
@@ -85,12 +73,6 @@ public class FirestationRepository {
         }
     }
 
-    /**
-     * Update Firestation to the List.
-     *
-     * @param firestation
-     * @return "Firestation update !" if update is successful or "Firestation doesn't exist !"
-     */
     public String updateFiresation(Firestation firestation) {
         logger.debug("Call FirestationRepository.updateFiresation witn param = " + firestation.toString());
         try {
@@ -106,13 +88,6 @@ public class FirestationRepository {
         }
     }
 
-
-    /**
-     * Find Firestation at an address
-     *
-     * @param address
-     * @return the Firestation at the address request
-     */
     public Firestation getFirestationByAddress(String address) {
         logger.debug("Call firestationRepository.getFirestationByAddress with param = " + address);
 
@@ -125,12 +100,6 @@ public class FirestationRepository {
         return null;
     }
 
-    /**
-     * Find Firestation with this sation number
-     *
-     * @param stationNumber
-     * @return List of firestation with this stationNumber
-     */
     public List<Firestation> getFirestationsByNumber(int stationNumber) {
         logger.debug("Call firestationRepository.getFirestationsByNumber with param = " + stationNumber);
 

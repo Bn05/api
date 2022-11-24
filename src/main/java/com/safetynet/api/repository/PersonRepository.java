@@ -46,11 +46,6 @@ public class PersonRepository {
         }
     }
 
-    /**
-     * Add Person to the List
-     * @param person
-     * @return "Person create !!" if creation is successful or "Person Already Exist !"
-     */
     public String createPerson(Person person) {
         logger.debug("Call PersonRepository.createPerson with parma = " + person.toString());
         try {
@@ -68,11 +63,6 @@ public class PersonRepository {
 
     }
 
-    /**
-     * Update person to the List
-     * @param person
-     * @return "Person update !!" if update is successful or "Person doesn't Exist !"
-     */
     public String updatePerson(Person person) {
         logger.debug("Call PersonRepository.updatePerson with parma = " + person.toString());
         try {
@@ -88,12 +78,6 @@ public class PersonRepository {
         }
     }
 
-    /**
-     * Delete person to the List
-     * @param firstName
-     * @param lastName
-     * @return "Person delete !!" if deletion is successful or "Person doesn't Exist !"
-     */
     public String deletePerson(String firstName, String lastName) {
         logger.debug("Call PersonRepository.updatePerson with parma = " + firstName + "," + lastName);
         try {
@@ -109,11 +93,6 @@ public class PersonRepository {
         }
     }
 
-    /**
-     * Give Person by station Number
-     * @param firestation
-     * @return List<Person>
-     */
     public List<Person> getPersonByStation(Firestation firestation) {
         logger.debug("Call personRepository.getPersonByStation with param = " + firestation.toString());
         List<Person> personList = new ArrayList<>(personMap.values());
@@ -128,11 +107,6 @@ public class PersonRepository {
         return personSelectList;
     }
 
-    /**
-     * Give Person by address
-     * @param address
-     * @return List<Person>
-     */
     public List<Person> getPersonByAddress(String address) {
         logger.debug("Call PersonRepository.getPersonByAddress with param = " + address);
         List<Person> personList = new ArrayList<>(personMap.values());
@@ -145,11 +119,6 @@ public class PersonRepository {
         return personSelectList;
     }
 
-    /**
-     * Give email's person who lives in this city
-     * @param city
-     * @return List<String>
-     */
     public List<String> getEmailByCity(String city) {
         logger.debug("Call personRepository.getEmailByCity with param : " + city);
         List<Person> personList = new ArrayList<>(personMap.values());

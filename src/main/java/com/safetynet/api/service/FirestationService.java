@@ -25,11 +25,6 @@ public class FirestationService {
     @Autowired
     private MedicalRecordRepository medicalRecordRepository;
 
-    /**
-     * Give people per station number
-     * @param stationNumber
-     * @return List people and their information
-     */
     public List<Object> getPersonsByStationNumber(int stationNumber) {
         logger.debug("Call FirestationService.getPersonsByStationNumber with param : " + stationNumber);
 
@@ -57,11 +52,6 @@ public class FirestationService {
         return Arrays.asList(countAdultAndChildMap, personLiteSelectList);
     }
 
-    /**
-     * Give phone number per station number
-     * @param stationNumber
-     * @return List of phone number
-     */
     public List<String> getPhoneNumberByStationNumber(int stationNumber) {
         logger.debug("Call FirestationService.getPhoneNumberByStationNumber with param = " + stationNumber);
         List<Firestation> firestationList = firestationRepository.getFirestationsByNumber(stationNumber);
@@ -79,11 +69,6 @@ public class FirestationService {
         return phoneNumberList;
     }
 
-    /**
-     * Give family per Firestation
-     * @param firestationNumberList
-     * @return family and their information
-     */
     public Map<String, List<String>> getFamilyByFireStation(List<Integer> firestationNumberList) {
         logger.debug("Call FirestationService.getFamilyByFireStation with param = " + firestationNumberList.toString());
 
@@ -115,11 +100,6 @@ public class FirestationService {
     }
 
 
-    /**
-     * Just call firestationRepository.createFirestation
-     * @param firestation
-     * @return
-     */
     public String createFirestation(Firestation firestation) {
         logger.debug("Call FirestationService.createFirestation with param = " + firestation.toString());
         String returnString = firestationRepository.createFirestation(firestation);
@@ -127,11 +107,6 @@ public class FirestationService {
         return returnString;
     }
 
-    /**
-     * Just call firestationRepository.deleteFirestation
-     * @param firestation
-     * @return
-     */
     public String deleteFirestation(Firestation firestation) {
         logger.debug("Call FiresationService.deleteFirestation with param = " + firestation.toString());
         String returnString = firestationRepository.deleteFirestation(firestation);
@@ -139,11 +114,6 @@ public class FirestationService {
         return returnString;
     }
 
-    /**
-     * Just call firestationRepository.updateFiresation
-     * @param firestation
-     * @return
-     */
     public String updateFiresation(Firestation firestation) {
         logger.debug("Call firestationService.updateFiresation with param = " + firestation.toString());
         String returnString = firestationRepository.updateFiresation(firestation);
