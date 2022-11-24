@@ -65,6 +65,12 @@ public class MedicalRecordRepository {
         }
     }
 
+    /**
+     * Add medical record to the List
+     *
+     * @param medicalRecord
+     * @return "Medical Record Create !!" if creation is successful or "Medical Record Already Exist !!"
+     */
     public String createMedicalRecord(MedicalRecord medicalRecord) {
         logger.debug("Call MedicalRecordRepository.createMedicalRecord with param = " + medicalRecord.toString());
         try {
@@ -80,6 +86,12 @@ public class MedicalRecordRepository {
         }
     }
 
+    /**
+     * Update medical record to the List
+     *
+     * @param medicalRecord
+     * @return "Medical Record Update !!" if update is successful or "Medical Record doesn't exist !"
+     */
     public String updateMedicalRecord(MedicalRecord medicalRecord) {
         logger.debug("Call MedicalRecordRepository.updateMedicalRecord with param = " + medicalRecord.toString());
         try {
@@ -95,6 +107,13 @@ public class MedicalRecordRepository {
         }
     }
 
+    /**
+     * Delete medical record to the List
+     *
+     * @param firstName
+     * @param lastName
+     * @return "Medical Record Delete !!" if deletion is successful or "Medical Record doesn't exist !"
+     */
     public String deleteMedicalRecord(String firstName, String lastName) {
         logger.debug("Call MedicalRecordRepository.deleteMedicalRecord with param = " + firstName + "," + lastName);
         try {
@@ -110,12 +129,25 @@ public class MedicalRecordRepository {
         }
     }
 
+    /**
+     * Give the medical record of the requested person
+     *
+     * @param firstName
+     * @param lastName
+     * @return MedicalRecord of the requested person
+     */
     public MedicalRecord getMedicalRecord(String firstName, String lastName) {
         logger.debug("Call MedicalRecordRepository.getMedicalRecord with param = " + firstName + "," + lastName);
         return medicalRecordMap.get(firstName + lastName);
     }
 
 
+    /**
+     * Count the number of adult and child
+     *
+     * @param personList
+     * @return Map with "child" and "adult" as key and the count as value
+     */
     public Map<String, Integer> countAdultAndChild(List<Person> personList) {
         logger.debug("Call medicalRecordRepository.countAdultAndChild with param = " + personList.toString());
 
@@ -134,6 +166,12 @@ public class MedicalRecordRepository {
         return listCount;
     }
 
+    /**
+     * give a person's age
+     *
+     * @param person
+     * @return period between today and birthdate
+     */
     public Period getAge(Person person) {
 
         logger.debug("Call MedicalRecordRepository.getAge with param = " + person);
@@ -142,11 +180,24 @@ public class MedicalRecordRepository {
         return Period.between(birthdate, now);
     }
 
+    /**
+     * Give a person's allergies
+     *
+     * @param firstName
+     * @param lastName
+     * @return List of allergies
+     */
     public List<String> getAllergie(String firstName, String lastName) {
         logger.debug("Call MedicalRecordRepository.getAllergie with param = " + firstName + "," + lastName);
         return getMedicalRecord(firstName, lastName).getAllergies();
     }
 
+    /**
+     * Give person's medications
+     * @param firstName
+     * @param lastName
+     * @return Map with medication as key and dosage as value
+     */
     public Map<String, String> getMedication(String firstName, String lastName) {
         logger.debug("Call MedicalRecordRepository.getMedication with param = " + firstName + "," + lastName);
 

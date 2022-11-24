@@ -1,337 +1,65 @@
-2022-11-23 15:53:56.579  INFO 2200 --- [main] com.safetynet.api.ApiApplication         : Starting ApiApplication using Java 18 on DESKTOP-R2DIIID with PID 2200 (C:\Users\Bertrand\Google Drive\Openclassroom\P5\api\target\classes started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
-2022-11-23 15:53:56.581 DEBUG 2200 --- [main] com.safetynet.api.ApiApplication         : Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-11-23 15:53:56.582  INFO 2200 --- [main] com.safetynet.api.ApiApplication         : No active profile set, falling back to 1 default profile: "default"
-2022-11-23 15:53:57.511  INFO 2200 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-11-23 15:53:58.217  INFO 2200 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-11-23 15:53:58.228  INFO 2200 --- [main] com.safetynet.api.ApiApplication         : Started ApiApplication in 1.97 seconds (JVM running for 2.447)
-2022-11-23 15:54:06.734  INFO 2200 --- [http-nio-8080-exec-1] c.s.api.controller.PersonController      : Request to get /personInfo with param firstName = John and lastName = Boyd
-2022-11-23 15:54:06.734 DEBUG 2200 --- [http-nio-8080-exec-1] com.safetynet.api.service.PersonService  : Call PersonService.getPersonInfo with param = John,Boyd
-2022-11-23 15:54:06.734 DEBUG 2200 --- [http-nio-8080-exec-1] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@35d90cfe
-2022-11-23 15:54:06.735 DEBUG 2200 --- [http-nio-8080-exec-1] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = John,Boyd
-2022-11-23 15:54:06.736 DEBUG 2200 --- [http-nio-8080-exec-1] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedication with param = John,Boyd
-2022-11-23 15:54:06.736 DEBUG 2200 --- [http-nio-8080-exec-1] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = John,Boyd
-2022-11-23 15:54:06.736 DEBUG 2200 --- [http-nio-8080-exec-1] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAllergie with param = John,Boyd
-2022-11-23 15:54:06.736 DEBUG 2200 --- [http-nio-8080-exec-1] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = John,Boyd
-2022-11-23 15:54:06.736 DEBUG 2200 --- [http-nio-8080-exec-1] com.safetynet.api.service.PersonService  : personMap : {firstName=John, lastName=Boyd, address=1509 Culver St, Age=38, email=jaboyd@email.com, medications={hydrapermazol=100mg, aznol=350mg}, allergies=[nillacilan]}
-2022-11-23 15:54:06.736  INFO 2200 --- [http-nio-8080-exec-1] c.s.api.controller.PersonController      : Response to get/personInfo : [{firstName=John, lastName=Boyd, address=1509 Culver St, Age=38, email=jaboyd@email.com, medications={hydrapermazol=100mg, aznol=350mg}, allergies=[nillacilan]}]
-2022-11-23 15:54:43.075  INFO 2200 --- [http-nio-8080-exec-3] c.s.api.controller.PersonController      : Request get /childAlert with param address = 1509 Culver St
-2022-11-23 15:54:43.076 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Call personService.getChildAlertAndFamilyByAddress with param : 1509 Culver St
-2022-11-23 15:54:43.076 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.api.repository.PersonRepository      : Call PersonRepository.getPersonByAddress with param = 1509 Culver St
-2022-11-23 15:54:43.076 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response PersonRepository.getPersonByAddress = [com.safetynet.api.model.Person@2844f1de, com.safetynet.api.model.Person@26831aa6, com.safetynet.api.model.Person@22bc9aae, com.safetynet.api.model.Person@35d90cfe, com.safetynet.api.model.Person@67be109d]
-2022-11-23 15:54:43.076 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Call PersonService.getChild with param = [com.safetynet.api.model.Person@2844f1de, com.safetynet.api.model.Person@26831aa6, com.safetynet.api.model.Person@22bc9aae, com.safetynet.api.model.Person@35d90cfe, com.safetynet.api.model.Person@67be109d]
-2022-11-23 15:54:43.076 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@2844f1de
-2022-11-23 15:54:43.076 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = Roger,Boyd
-2022-11-23 15:54:43.076 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 5
-2022-11-23 15:54:43.077 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@26831aa6
-2022-11-23 15:54:43.077 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = Jacob,Boyd
-2022-11-23 15:54:43.077 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 33
-2022-11-23 15:54:43.077 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@22bc9aae
-2022-11-23 15:54:43.077 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = Tenley,Boyd
-2022-11-23 15:54:43.077 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 10
-2022-11-23 15:54:43.077 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@35d90cfe
-2022-11-23 15:54:43.077 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = John,Boyd
-2022-11-23 15:54:43.078 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 38
-2022-11-23 15:54:43.078 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@67be109d
-2022-11-23 15:54:43.078 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = Felicia,Boyd
-2022-11-23 15:54:43.078 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 36
-2022-11-23 15:54:43.078 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : childList : [com.safetynet.api.model.Person@2844f1de, com.safetynet.api.model.Person@22bc9aae]
-2022-11-23 15:54:43.078 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response to PersonService.getChild : [com.safetynet.api.model.Person@2844f1de, com.safetynet.api.model.Person@22bc9aae]
-2022-11-23 15:54:43.078 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Call PersonService.getFamily with param : com.safetynet.api.model.Person@2844f1de
-2022-11-23 15:54:43.078 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : family : [com.safetynet.api.model.Person@26831aa6, com.safetynet.api.model.Person@22bc9aae, com.safetynet.api.model.Person@35d90cfe, com.safetynet.api.model.Person@67be109d]
-2022-11-23 15:54:43.078 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response to PersonService.getFamily : [com.safetynet.api.model.Person@26831aa6, com.safetynet.api.model.Person@22bc9aae, com.safetynet.api.model.Person@35d90cfe, com.safetynet.api.model.Person@67be109d]
-2022-11-23 15:54:43.078 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  :  familyLite = [{firstName=Jacob, lastName=Boyd}, {firstName=Tenley, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]
-2022-11-23 15:54:43.078 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@2844f1de
-2022-11-23 15:54:43.078 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = Roger,Boyd
-2022-11-23 15:54:43.079 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : childMap = {FirstName=Roger, LastName=Boyd, Age=5, Family=[{firstName=Jacob, lastName=Boyd}, {firstName=Tenley, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}
-2022-11-23 15:54:43.079 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Call PersonService.getFamily with param : com.safetynet.api.model.Person@22bc9aae
-2022-11-23 15:54:43.079 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : family : [com.safetynet.api.model.Person@2844f1de, com.safetynet.api.model.Person@26831aa6, com.safetynet.api.model.Person@35d90cfe, com.safetynet.api.model.Person@67be109d]
-2022-11-23 15:54:43.079 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : Response to PersonService.getFamily : [com.safetynet.api.model.Person@2844f1de, com.safetynet.api.model.Person@26831aa6, com.safetynet.api.model.Person@35d90cfe, com.safetynet.api.model.Person@67be109d]
-2022-11-23 15:54:43.079 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  :  familyLite = [{firstName=Roger, lastName=Boyd}, {firstName=Jacob, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]
-2022-11-23 15:54:43.079 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@22bc9aae
-2022-11-23 15:54:43.079 DEBUG 2200 --- [http-nio-8080-exec-3] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = Tenley,Boyd
-2022-11-23 15:54:43.079 DEBUG 2200 --- [http-nio-8080-exec-3] com.safetynet.api.service.PersonService  : childMap = {FirstName=Tenley, LastName=Boyd, Age=10, Family=[{firstName=Roger, lastName=Boyd}, {firstName=Jacob, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}
-2022-11-23 15:54:43.079  INFO 2200 --- [http-nio-8080-exec-3] c.s.api.controller.PersonController      : Response to get /childAlert : [{FirstName=Roger, LastName=Boyd, Age=5, Family=[{firstName=Jacob, lastName=Boyd}, {firstName=Tenley, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}, {FirstName=Tenley, LastName=Boyd, Age=10, Family=[{firstName=Roger, lastName=Boyd}, {firstName=Jacob, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}]
-2022-11-23 15:55:41.222  INFO 20240 --- [main] c.s.a.r.FirestationRepositoryTest        : Starting FirestationRepositoryTest using Java 18 on DESKTOP-R2DIIID with PID 20240 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
-2022-11-23 15:55:41.223 DEBUG 20240 --- [main] c.s.a.r.FirestationRepositoryTest        : Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-11-23 15:55:41.224  INFO 20240 --- [main] c.s.a.r.FirestationRepositoryTest        : No active profile set, falling back to 1 default profile: "default"
-2022-11-23 15:55:43.500  INFO 20240 --- [main] c.s.a.r.FirestationRepositoryTest        : Started FirestationRepositoryTest in 2.509 seconds (JVM running for 3.566)
-2022-11-23 15:55:43.905 DEBUG 20240 --- [main] c.s.a.repository.FirestationRepository   : Call firestationRepository.getFirestationsByNumber with param = 0
-2022-11-23 15:55:43.921 DEBUG 20240 --- [main] c.s.a.repository.FirestationRepository   : Call FirestationRepository.updateFiresation witn param = com.safetynet.api.model.Firestation@627bcd7e
-2022-11-23 15:55:43.921 ERROR 20240 --- [main] c.s.a.repository.FirestationRepository   : Firestation doesn't exist !
-2022-11-23 15:55:43.925 DEBUG 20240 --- [main] c.s.a.repository.FirestationRepository   : Call firestationRepository.getFirestationsByNumber with param = 1
-2022-11-23 15:55:43.929 DEBUG 20240 --- [main] c.s.a.repository.FirestationRepository   : Call firestationRepository.getFirestationByAddress with param = testAddress0
-2022-11-23 15:55:43.934 DEBUG 20240 --- [main] c.s.a.repository.FirestationRepository   : Call FirestationRepository.deleteFirestation witn param = com.safetynet.api.model.Firestation@28b5662d
-2022-11-23 15:55:43.937 DEBUG 20240 --- [main] c.s.a.repository.FirestationRepository   : Call FirestationRepository.createFirestation witn param = com.safetynet.api.model.Firestation@34b2d51a
-2022-11-23 15:55:43.942 DEBUG 20240 --- [main] c.s.a.repository.FirestationRepository   : Call firestationRepository.getFirestationByAddress with param = Error Address
-2022-11-23 15:55:43.946 DEBUG 20240 --- [main] c.s.a.repository.FirestationRepository   : Call FirestationRepository.updateFiresation witn param = com.safetynet.api.model.Firestation@191e654
-2022-11-23 15:55:43.950 DEBUG 20240 --- [main] c.s.a.repository.FirestationRepository   : Call FirestationRepository.createFirestation witn param = com.safetynet.api.model.Firestation@3a6556b6
-2022-11-23 15:55:43.950 ERROR 20240 --- [main] c.s.a.repository.FirestationRepository   : Firestation already exist
-2022-11-23 15:55:43.953 DEBUG 20240 --- [main] c.s.a.repository.FirestationRepository   : Call FirestationRepository.deleteFirestation witn param = com.safetynet.api.model.Firestation@63bca84d
-2022-11-23 15:55:43.954 ERROR 20240 --- [main] c.s.a.repository.FirestationRepository   : Firestation doesn't exist !
-2022-11-23 15:55:43.970 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.updateMedicalRecord with param = com.safetynet.api.model.MedicalRecord@38dbeb39
-2022-11-23 15:55:43.970 ERROR 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Medical Record doesn't exist !
-2022-11-23 15:55:43.976 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.createMedicalRecord with param = com.safetynet.api.model.MedicalRecord@10f20d38
-2022-11-23 15:55:43.981 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call medicalRecordRepository.countAdultAndChild with param = [com.safetynet.api.model.Person@538aa83f, com.safetynet.api.model.Person@63e70bf9]
-2022-11-23 15:55:43.981 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@538aa83f
-2022-11-23 15:55:43.983 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = firstName0,lastName0
-2022-11-23 15:55:43.983 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@63e70bf9
-2022-11-23 15:55:43.983 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = firstName1,lastName1
-2022-11-23 15:55:43.988 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.updateMedicalRecord with param = com.safetynet.api.model.MedicalRecord@3c544c9
-2022-11-23 15:55:43.992 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.createMedicalRecord with param = com.safetynet.api.model.MedicalRecord@22e813fc
-2022-11-23 15:55:43.992 ERROR 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Medical Record Already Exist !!
-2022-11-23 15:55:43.997 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAllergie with param = firstName0,lastName0
-2022-11-23 15:55:43.997 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = firstName0,lastName0
-2022-11-23 15:55:44.003 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.deleteMedicalRecord with param = firstName0,lastName0
-2022-11-23 15:55:44.007 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.deleteMedicalRecord with param = firstName1,lastName1
-2022-11-23 15:55:44.008 ERROR 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Medical Record doesn't exist !
-2022-11-23 15:55:44.018 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = firstName0,lastName0
-2022-11-23 15:55:44.023 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedication with param = firstName0,lastName0
-2022-11-23 15:55:44.023 DEBUG 20240 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = firstName0,lastName0
-2022-11-23 15:55:44.069  INFO 20240 --- [main] c.s.a.c.MedicalRecordControllerTest      : Starting MedicalRecordControllerTest using Java 18 on DESKTOP-R2DIIID with PID 20240 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
-2022-11-23 15:55:44.070 DEBUG 20240 --- [main] c.s.a.c.MedicalRecordControllerTest      : Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-11-23 15:55:44.070  INFO 20240 --- [main] c.s.a.c.MedicalRecordControllerTest      : No active profile set, falling back to 1 default profile: "default"
-2022-11-23 15:55:45.002  INFO 20240 --- [main] c.s.a.c.MedicalRecordControllerTest      : Started MedicalRecordControllerTest in 0.954 seconds (JVM running for 5.068)
-2022-11-23 15:55:45.119  INFO 20240 --- [main] c.s.a.c.MedicalRecordController          : Request to put/medicalRecord with body param : com.safetynet.api.model.MedicalRecord@7a8b7e11
-2022-11-23 15:55:45.121  INFO 20240 --- [main] c.s.a.c.MedicalRecordController          : Response to put/medicalRecord : null
-2022-11-23 15:55:45.140  INFO 20240 --- [main] c.s.a.c.MedicalRecordController          : Request to post/medicalRecord with body param = com.safetynet.api.model.MedicalRecord@2f262474
-2022-11-23 15:55:45.141  INFO 20240 --- [main] c.s.a.c.MedicalRecordController          : Response to post/medicalRecord : null
-2022-11-23 15:55:45.149  INFO 20240 --- [main] c.s.a.c.MedicalRecordController          : Request to delete/medicalRecord with param firstName = firstName and lastName = lastName
-2022-11-23 15:55:45.156  INFO 20240 --- [main] c.s.a.c.MedicalRecordController          : Response to delete/medicalRecort : OK
-2022-11-23 15:55:45.182  INFO 20240 --- [main] c.s.api.controller.PersonControllerTest  : Starting PersonControllerTest using Java 18 on DESKTOP-R2DIIID with PID 20240 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
-2022-11-23 15:55:45.182 DEBUG 20240 --- [main] c.s.api.controller.PersonControllerTest  : Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-11-23 15:55:45.183  INFO 20240 --- [main] c.s.api.controller.PersonControllerTest  : No active profile set, falling back to 1 default profile: "default"
-2022-11-23 15:55:45.917  INFO 20240 --- [main] c.s.api.controller.PersonControllerTest  : Started PersonControllerTest in 0.75 seconds (JVM running for 5.983)
-2022-11-23 15:55:45.933  INFO 20240 --- [main] c.s.api.controller.PersonController      : Request put/person with this body request :com.safetynet.api.model.Person@4be7acd9
-2022-11-23 15:55:45.934  INFO 20240 --- [main] c.s.api.controller.PersonController      : Response to put/person : OK
-2022-11-23 15:55:45.940  INFO 20240 --- [main] c.s.api.controller.PersonController      : Request to delete/person with this param firstName = firstName0 and lastName = lastName0
-2022-11-23 15:55:45.940  INFO 20240 --- [main] c.s.api.controller.PersonController      : Response to delete/person : OK
-2022-11-23 15:55:45.947  INFO 20240 --- [main] c.s.api.controller.PersonController      : Request to get/fire with param address = address
-2022-11-23 15:55:45.947  INFO 20240 --- [main] c.s.api.controller.PersonController      : Response to get/fire : {}
-2022-11-23 15:55:45.957  INFO 20240 --- [main] c.s.api.controller.PersonController      : Request to get /personInfo with param firstName = firstName and lastName = lastName
-2022-11-23 15:55:45.959  INFO 20240 --- [main] c.s.api.controller.PersonController      : Response to get/personInfo : []
-2022-11-23 15:55:45.964  INFO 20240 --- [main] c.s.api.controller.PersonController      : Request to get/communityEmail with param city = city
-2022-11-23 15:55:45.965  INFO 20240 --- [main] c.s.api.controller.PersonController      : Response to get/communityEmail : []
-2022-11-23 15:55:45.970  INFO 20240 --- [main] c.s.api.controller.PersonController      : Request get /childAlert with param address = address
-2022-11-23 15:55:45.970  INFO 20240 --- [main] c.s.api.controller.PersonController      : Response to get /childAlert : []
-2022-11-23 15:55:45.976  INFO 20240 --- [main] c.s.api.controller.PersonController      : Request post/person with this body request : com.safetynet.api.model.Person@13cc31df
-2022-11-23 15:55:45.977  INFO 20240 --- [main] c.s.api.controller.PersonController      : Response to post/person : OK
-2022-11-23 15:55:46.024 DEBUG 20240 --- [main] c.s.api.service.MedicalRecordService     : Call MedicalRecordService.updateMedicalRecord with param = com.safetynet.api.model.MedicalRecord@7577589
-2022-11-23 15:55:46.025 DEBUG 20240 --- [main] c.s.api.service.MedicalRecordService     : Response to medicalRecordRepository.updateMedicalRecord : null
-2022-11-23 15:55:46.029 DEBUG 20240 --- [main] c.s.api.service.MedicalRecordService     : Call MedicalRecordService.createMedicalRecord with param = com.safetynet.api.model.MedicalRecord@6f4f2cc0
-2022-11-23 15:55:46.029 DEBUG 20240 --- [main] c.s.api.service.MedicalRecordService     : Response to medicalRecordRepository.createMedicalRecord : null
-2022-11-23 15:55:46.032 DEBUG 20240 --- [main] c.s.api.service.MedicalRecordService     : Call MedicalRecordService.deleteMedicalRecord with param : firstName,lastName
-2022-11-23 15:55:46.033 DEBUG 20240 --- [main] c.s.api.service.MedicalRecordService     : Response to medicalRecordRepository.deleteMedicalRecord : null
-2022-11-23 15:55:46.053  INFO 20240 --- [main] c.s.a.c.FirestationControllerTest        : Starting FirestationControllerTest using Java 18 on DESKTOP-R2DIIID with PID 20240 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
-2022-11-23 15:55:46.054 DEBUG 20240 --- [main] c.s.a.c.FirestationControllerTest        : Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-11-23 15:55:46.054  INFO 20240 --- [main] c.s.a.c.FirestationControllerTest        : No active profile set, falling back to 1 default profile: "default"
-2022-11-23 15:55:46.687  INFO 20240 --- [main] c.s.a.c.FirestationControllerTest        : Started FirestationControllerTest in 0.648 seconds (JVM running for 6.753)
-2022-11-23 15:55:46.698  INFO 20240 --- [main] c.s.a.controller.FirestationController   : Request to put/firestation with body param = com.safetynet.api.model.Firestation@50008974
-2022-11-23 15:55:46.698  INFO 20240 --- [main] c.s.a.controller.FirestationController   : Response to put/firestation : ok
-2022-11-23 15:55:46.703  INFO 20240 --- [main] c.s.a.controller.FirestationController   : Request get/phoneAlert with param firestation = 0
-2022-11-23 15:55:46.704  INFO 20240 --- [main] c.s.a.controller.FirestationController   : Response to get/phoneAlert : []
-2022-11-23 15:55:46.708  INFO 20240 --- [main] c.s.a.controller.FirestationController   : Request get/firestation with param stationNumber = 0
-2022-11-23 15:55:46.709  INFO 20240 --- [main] c.s.a.controller.FirestationController   : Response to get/firestation : []
-2022-11-23 15:55:46.714  INFO 20240 --- [main] c.s.a.controller.FirestationController   : Request to delete/firestation with body param = com.safetynet.api.model.Firestation@55202ba6
-2022-11-23 15:55:46.714  INFO 20240 --- [main] c.s.a.controller.FirestationController   : Response to delete/firestation : ok
-2022-11-23 15:55:46.718  INFO 20240 --- [main] c.s.a.controller.FirestationController   : Request post/firestation with body request = com.safetynet.api.model.Firestation@38874eb5
-2022-11-23 15:55:46.719  INFO 20240 --- [main] c.s.a.controller.FirestationController   : Response to post/firestation : ok
-2022-11-23 15:55:46.723  INFO 20240 --- [main] c.s.a.controller.FirestationController   : Request get/flood/stations with param stations = [1, 2]
-2022-11-23 15:55:46.723  INFO 20240 --- [main] c.s.a.controller.FirestationController   : Response to get/flood/stations : {}
-2022-11-23 15:55:46.755 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Call personService.updatePerson() with param : null
-2022-11-23 15:55:46.759 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Call personService.deletePerson() with param : null,null
-2022-11-23 15:55:46.759  INFO 20240 --- [main] com.safetynet.api.service.PersonService  : Response to personRepository.deletePerson : null
-2022-11-23 15:55:46.763 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Call personService.getChildAlertAndFamilyByAddress with param : address0
-2022-11-23 15:55:46.764 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Response PersonRepository.getPersonByAddress = [com.safetynet.api.model.Person@4f55a864, com.safetynet.api.model.Person@2c2edbe7, com.safetynet.api.model.Person@7f53a31f, com.safetynet.api.model.Person@4ba1f425]
-2022-11-23 15:55:46.764 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Call PersonService.getChild with param = [com.safetynet.api.model.Person@4f55a864, com.safetynet.api.model.Person@2c2edbe7, com.safetynet.api.model.Person@7f53a31f, com.safetynet.api.model.Person@4ba1f425]
-2022-11-23 15:55:46.764 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 5
-2022-11-23 15:55:46.764 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 45
-2022-11-23 15:55:46.764 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 50
-2022-11-23 15:55:46.764 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 45
-2022-11-23 15:55:46.764 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : childList : [com.safetynet.api.model.Person@4f55a864]
-2022-11-23 15:55:46.764 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Response to PersonService.getChild : [com.safetynet.api.model.Person@4f55a864]
-2022-11-23 15:55:46.764 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Call PersonService.getFamily with param : com.safetynet.api.model.Person@4f55a864
-2022-11-23 15:55:46.765 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : family : [com.safetynet.api.model.Person@2c2edbe7]
-2022-11-23 15:55:46.765 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Response to PersonService.getFamily : [com.safetynet.api.model.Person@2c2edbe7]
-2022-11-23 15:55:46.765 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  :  familyLite = [{firstName=firstName0, lastName=lastName0}]
-2022-11-23 15:55:46.765 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : childMap = {FirstName=childFirstName0, LastName=lastName0, Age=5, Family=[{firstName=firstName0, lastName=lastName0}]}
-2022-11-23 15:55:46.768 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Call PersonService.getPersonMedicalRecordAndStationNumber with param = address0
-2022-11-23 15:55:46.769 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Reponse to personRepository.getPersonByAddress : [com.safetynet.api.model.Person@5703c1fb]
-2022-11-23 15:55:46.769 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Response to firestationRepository.getFirestationByAddress with param = address0
-2022-11-23 15:55:46.769 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : personMap = {firstName=firstName0, lastName=lastName0, phone=phone0, age=45, allergies=[allergieTest], medications={medocTest=30KG!!}}
-2022-11-23 15:55:46.772 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Call PersonService.getPersonInfo with param = firstName0,lastName0
-2022-11-23 15:55:46.773 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : personMap : {firstName=firstName0, lastName=lastName0, address=address0, Age=45, email=00@, medications={}, allergies=[]}
-2022-11-23 15:55:46.776 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Call PersonService.getEmailByCity with param : null
-2022-11-23 15:55:46.776 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Response to personRepository.getEmailByCity : []
-2022-11-23 15:55:46.780 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Call personService.createPerson() with param : null
-2022-11-23 15:55:46.780 DEBUG 20240 --- [main] com.safetynet.api.service.PersonService  : Response to personRepository.createPerson : null
-2022-11-23 15:55:46.787 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : Call firestationService.updateFiresation with param = com.safetynet.api.model.Firestation@51b41740
-2022-11-23 15:55:46.788 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : Response to firestationRepository.updateFiresation : null
-2022-11-23 15:55:46.792 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : Call FirestationService.getPhoneNumberByStationNumber with param = 0
-2022-11-23 15:55:46.792 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : Response to firestationRepository.getFirestationsByNumber : [com.safetynet.api.model.Firestation@104392ba]
-2022-11-23 15:55:46.793 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : Response to personRepository.getPersonByStation : [com.safetynet.api.model.Person@57e6d56a]
-2022-11-23 15:55:46.795 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : Call FirestationService.createFirestation with param = com.safetynet.api.model.Firestation@7872e91f
-2022-11-23 15:55:46.796 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : Response to firestationRepository.createFirestation :null
-2022-11-23 15:55:46.800 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : Call FirestationService.getPersonsByStationNumber with param : 0
-2022-11-23 15:55:46.800 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : firestationSelectList = [com.safetynet.api.model.Firestation@13866865]
-2022-11-23 15:55:46.800 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : personSelectList : [com.safetynet.api.model.Person@4891d727]
-2022-11-23 15:55:46.800 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : personLiteSelectList : [{firstName=firstName0, lastName=lastName0, address=address0, phone=phone0}]
-2022-11-23 15:55:46.800 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : Response to medicalRecordRepository.countAdultAndChild : {Adult=0, Child=1}
-2022-11-23 15:55:46.804 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : Call FiresationService.deleteFirestation with param = com.safetynet.api.model.Firestation@787a4519
-2022-11-23 15:55:46.804 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : Response to firestationRepository.deleteFirestation : null
-2022-11-23 15:55:46.808 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : Call FirestationService.getFamilyByFireStation with param = [0]
-2022-11-23 15:55:46.808 DEBUG 20240 --- [main] c.s.api.service.FirestationService       :  firestationList = [com.safetynet.api.model.Firestation@1831447c]
-2022-11-23 15:55:46.809 DEBUG 20240 --- [main] c.s.api.service.FirestationService       : personStringList = [firstName0 lastName0 || Phone : phone0 || Age : 30 || Medications : {medication00=medic00, medication01=medic01} || Allergies : [allergie0]]
-2022-11-23 15:55:46.814 DEBUG 20240 --- [main] c.s.api.repository.PersonRepository      : Call PersonRepository.createPerson with parma = com.safetynet.api.model.Person@37a0fc8c
-2022-11-23 15:55:46.820 DEBUG 20240 --- [main] c.s.api.repository.PersonRepository      : Call PersonRepository.updatePerson with parma = firstName0,lastName0
-2022-11-23 15:55:46.823 DEBUG 20240 --- [main] c.s.api.repository.PersonRepository      : Call PersonRepository.updatePerson with parma = com.safetynet.api.model.Person@1ba3c03d
-2022-11-23 15:55:46.825 DEBUG 20240 --- [main] c.s.api.repository.PersonRepository      : Call PersonRepository.createPerson with parma = com.safetynet.api.model.Person@9a37591
-2022-11-23 15:55:46.826 ERROR 20240 --- [main] c.s.api.repository.PersonRepository      : Person Already Exist !
-2022-11-23 15:55:46.828 DEBUG 20240 --- [main] c.s.api.repository.PersonRepository      : Call personRepository.getPersonByStation with param = com.safetynet.api.model.Firestation@749c0669
-2022-11-23 15:55:46.830 DEBUG 20240 --- [main] c.s.api.repository.PersonRepository      : Call PersonRepository.updatePerson with parma = com.safetynet.api.model.Person@4468c0ea
-2022-11-23 15:55:46.830 ERROR 20240 --- [main] c.s.api.repository.PersonRepository      : Person doesn't Exist !
-2022-11-23 15:55:46.832 DEBUG 20240 --- [main] c.s.api.repository.PersonRepository      : Call personRepository.getEmailByCity with param : city0
-2022-11-23 15:55:46.837 DEBUG 20240 --- [main] c.s.api.repository.PersonRepository      : Call PersonRepository.getPersonByAddress with param = address0
-2022-11-23 15:55:46.839 DEBUG 20240 --- [main] c.s.api.repository.PersonRepository      : Call PersonRepository.updatePerson with parma = firstName1,lastName1
-2022-11-23 15:55:46.839 ERROR 20240 --- [main] c.s.api.repository.PersonRepository      : Person doesn't Exist !
-2022-11-23 15:56:03.396  INFO 1964 --- [main] c.s.a.c.FirestationControllerTest        : Starting FirestationControllerTest using Java 18 on DESKTOP-R2DIIID with PID 1964 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
-2022-11-23 15:56:03.397 DEBUG 1964 --- [main] c.s.a.c.FirestationControllerTest        : Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-11-23 15:56:03.398  INFO 1964 --- [main] c.s.a.c.FirestationControllerTest        : No active profile set, falling back to 1 default profile: "default"
-2022-11-23 15:56:07.362  INFO 1964 --- [main] c.s.a.c.FirestationControllerTest        : Started FirestationControllerTest in 4.385 seconds (JVM running for 5.905)
-2022-11-23 15:56:07.654  INFO 1964 --- [main] c.s.a.controller.FirestationController   : Request to put/firestation with body param = com.safetynet.api.model.Firestation@47828afb
-2022-11-23 15:56:07.660  INFO 1964 --- [main] c.s.a.controller.FirestationController   : Response to put/firestation : ok
-2022-11-23 15:56:07.704  INFO 1964 --- [main] c.s.a.controller.FirestationController   : Request get/phoneAlert with param firestation = 0
-2022-11-23 15:56:07.705  INFO 1964 --- [main] c.s.a.controller.FirestationController   : Response to get/phoneAlert : []
-2022-11-23 15:56:07.721  INFO 1964 --- [main] c.s.a.controller.FirestationController   : Request get/firestation with param stationNumber = 0
-2022-11-23 15:56:07.722  INFO 1964 --- [main] c.s.a.controller.FirestationController   : Response to get/firestation : []
-2022-11-23 15:56:07.732  INFO 1964 --- [main] c.s.a.controller.FirestationController   : Request to delete/firestation with body param = com.safetynet.api.model.Firestation@7dd5d17a
-2022-11-23 15:56:07.732  INFO 1964 --- [main] c.s.a.controller.FirestationController   : Response to delete/firestation : ok
-2022-11-23 15:56:07.743  INFO 1964 --- [main] c.s.a.controller.FirestationController   : Request post/firestation with body request = com.safetynet.api.model.Firestation@4d5dc037
-2022-11-23 15:56:07.743  INFO 1964 --- [main] c.s.a.controller.FirestationController   : Response to post/firestation : ok
-2022-11-23 15:56:07.752  INFO 1964 --- [main] c.s.a.controller.FirestationController   : Request get/flood/stations with param stations = [1, 2]
-2022-11-23 15:56:07.752  INFO 1964 --- [main] c.s.a.controller.FirestationController   : Response to get/flood/stations : {}
-2022-11-23 15:56:07.803  INFO 1964 --- [main] c.s.a.c.MedicalRecordControllerTest      : Starting MedicalRecordControllerTest using Java 18 on DESKTOP-R2DIIID with PID 1964 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
-2022-11-23 15:56:07.803 DEBUG 1964 --- [main] c.s.a.c.MedicalRecordControllerTest      : Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-11-23 15:56:07.803  INFO 1964 --- [main] c.s.a.c.MedicalRecordControllerTest      : No active profile set, falling back to 1 default profile: "default"
-2022-11-23 15:56:08.973  INFO 1964 --- [main] c.s.a.c.MedicalRecordControllerTest      : Started MedicalRecordControllerTest in 1.201 seconds (JVM running for 7.516)
-2022-11-23 15:56:08.997  INFO 1964 --- [main] c.s.a.c.MedicalRecordController          : Request to put/medicalRecord with body param : com.safetynet.api.model.MedicalRecord@2624dd2c
-2022-11-23 15:56:08.998  INFO 1964 --- [main] c.s.a.c.MedicalRecordController          : Response to put/medicalRecord : null
-2022-11-23 15:56:09.008  INFO 1964 --- [main] c.s.a.c.MedicalRecordController          : Request to post/medicalRecord with body param = com.safetynet.api.model.MedicalRecord@55c0a768
-2022-11-23 15:56:09.009  INFO 1964 --- [main] c.s.a.c.MedicalRecordController          : Response to post/medicalRecord : null
-2022-11-23 15:56:09.018  INFO 1964 --- [main] c.s.a.c.MedicalRecordController          : Request to delete/medicalRecord with param firstName = firstName and lastName = lastName
-2022-11-23 15:56:09.018  INFO 1964 --- [main] c.s.a.c.MedicalRecordController          : Response to delete/medicalRecort : OK
-2022-11-23 15:56:09.059  INFO 1964 --- [main] c.s.api.controller.PersonControllerTest  : Starting PersonControllerTest using Java 18 on DESKTOP-R2DIIID with PID 1964 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
-2022-11-23 15:56:09.060 DEBUG 1964 --- [main] c.s.api.controller.PersonControllerTest  : Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-11-23 15:56:09.060  INFO 1964 --- [main] c.s.api.controller.PersonControllerTest  : No active profile set, falling back to 1 default profile: "default"
-2022-11-23 15:56:10.194  INFO 1964 --- [main] c.s.api.controller.PersonControllerTest  : Started PersonControllerTest in 1.161 seconds (JVM running for 8.737)
-2022-11-23 15:56:10.209  INFO 1964 --- [main] c.s.api.controller.PersonController      : Request put/person with this body request :com.safetynet.api.model.Person@61e23a44
-2022-11-23 15:56:10.210  INFO 1964 --- [main] c.s.api.controller.PersonController      : Response to put/person : OK
-2022-11-23 15:56:10.216  INFO 1964 --- [main] c.s.api.controller.PersonController      : Request to delete/person with this param firstName = firstName0 and lastName = lastName0
-2022-11-23 15:56:10.217  INFO 1964 --- [main] c.s.api.controller.PersonController      : Response to delete/person : OK
-2022-11-23 15:56:10.223  INFO 1964 --- [main] c.s.api.controller.PersonController      : Request to get/fire with param address = address
-2022-11-23 15:56:10.223  INFO 1964 --- [main] c.s.api.controller.PersonController      : Response to get/fire : {}
-2022-11-23 15:56:10.229  INFO 1964 --- [main] c.s.api.controller.PersonController      : Request to get /personInfo with param firstName = firstName and lastName = lastName
-2022-11-23 15:56:10.230  INFO 1964 --- [main] c.s.api.controller.PersonController      : Response to get/personInfo : []
-2022-11-23 15:56:10.235  INFO 1964 --- [main] c.s.api.controller.PersonController      : Request to get/communityEmail with param city = city
-2022-11-23 15:56:10.236  INFO 1964 --- [main] c.s.api.controller.PersonController      : Response to get/communityEmail : []
-2022-11-23 15:56:10.242  INFO 1964 --- [main] c.s.api.controller.PersonController      : Request get /childAlert with param address = address
-2022-11-23 15:56:10.243  INFO 1964 --- [main] c.s.api.controller.PersonController      : Response to get /childAlert : []
-2022-11-23 15:56:10.249  INFO 1964 --- [main] c.s.api.controller.PersonController      : Request post/person with this body request : com.safetynet.api.model.Person@38dd5c3a
-2022-11-23 15:56:10.250  INFO 1964 --- [main] c.s.api.controller.PersonController      : Response to post/person : OK
-2022-11-23 15:56:10.278  INFO 1964 --- [main] c.s.a.r.FirestationRepositoryTest        : Starting FirestationRepositoryTest using Java 18 on DESKTOP-R2DIIID with PID 1964 (started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
-2022-11-23 15:56:10.278 DEBUG 1964 --- [main] c.s.a.r.FirestationRepositoryTest        : Running with Spring Boot v2.7.5, Spring v5.3.23
-2022-11-23 15:56:10.278  INFO 1964 --- [main] c.s.a.r.FirestationRepositoryTest        : No active profile set, falling back to 1 default profile: "default"
-2022-11-23 15:56:10.997  INFO 1964 --- [main] c.s.a.r.FirestationRepositoryTest        : Started FirestationRepositoryTest in 0.734 seconds (JVM running for 9.54)
-2022-11-23 15:56:11.007 DEBUG 1964 --- [main] c.s.a.repository.FirestationRepository   : Call firestationRepository.getFirestationsByNumber with param = 0
-2022-11-23 15:56:11.014 DEBUG 1964 --- [main] c.s.a.repository.FirestationRepository   : Call FirestationRepository.updateFiresation witn param = com.safetynet.api.model.Firestation@674502f9
-2022-11-23 15:56:11.015 ERROR 1964 --- [main] c.s.a.repository.FirestationRepository   : Firestation doesn't exist !
-2022-11-23 15:56:11.018 DEBUG 1964 --- [main] c.s.a.repository.FirestationRepository   : Call firestationRepository.getFirestationsByNumber with param = 1
-2022-11-23 15:56:11.021 DEBUG 1964 --- [main] c.s.a.repository.FirestationRepository   : Call firestationRepository.getFirestationByAddress with param = testAddress0
-2022-11-23 15:56:11.026 DEBUG 1964 --- [main] c.s.a.repository.FirestationRepository   : Call FirestationRepository.deleteFirestation witn param = com.safetynet.api.model.Firestation@265b52b7
-2022-11-23 15:56:11.029 DEBUG 1964 --- [main] c.s.a.repository.FirestationRepository   : Call FirestationRepository.createFirestation witn param = com.safetynet.api.model.Firestation@7e58471
-2022-11-23 15:56:11.032 DEBUG 1964 --- [main] c.s.a.repository.FirestationRepository   : Call firestationRepository.getFirestationByAddress with param = Error Address
-2022-11-23 15:56:11.036 DEBUG 1964 --- [main] c.s.a.repository.FirestationRepository   : Call FirestationRepository.updateFiresation witn param = com.safetynet.api.model.Firestation@392b9329
-2022-11-23 15:56:11.038 DEBUG 1964 --- [main] c.s.a.repository.FirestationRepository   : Call FirestationRepository.createFirestation witn param = com.safetynet.api.model.Firestation@6f2d77e9
-2022-11-23 15:56:11.039 ERROR 1964 --- [main] c.s.a.repository.FirestationRepository   : Firestation already exist
-2022-11-23 15:56:11.042 DEBUG 1964 --- [main] c.s.a.repository.FirestationRepository   : Call FirestationRepository.deleteFirestation witn param = com.safetynet.api.model.Firestation@23ea17e
-2022-11-23 15:56:11.042 ERROR 1964 --- [main] c.s.a.repository.FirestationRepository   : Firestation doesn't exist !
-2022-11-23 15:56:11.055 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.updateMedicalRecord with param = com.safetynet.api.model.MedicalRecord@735b638
-2022-11-23 15:56:11.055 ERROR 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Medical Record doesn't exist !
-2022-11-23 15:56:11.059 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.createMedicalRecord with param = com.safetynet.api.model.MedicalRecord@baee849
-2022-11-23 15:56:11.062 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call medicalRecordRepository.countAdultAndChild with param = [com.safetynet.api.model.Person@63734973, com.safetynet.api.model.Person@17f856a3]
-2022-11-23 15:56:11.062 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@63734973
-2022-11-23 15:56:11.063 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = firstName0,lastName0
-2022-11-23 15:56:11.063 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@17f856a3
-2022-11-23 15:56:11.063 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = firstName1,lastName1
-2022-11-23 15:56:11.066 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.updateMedicalRecord with param = com.safetynet.api.model.MedicalRecord@6571d5a1
-2022-11-23 15:56:11.069 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.createMedicalRecord with param = com.safetynet.api.model.MedicalRecord@132b00bb
-2022-11-23 15:56:11.069 ERROR 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Medical Record Already Exist !!
-2022-11-23 15:56:11.072 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAllergie with param = firstName0,lastName0
-2022-11-23 15:56:11.072 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = firstName0,lastName0
-2022-11-23 15:56:11.075 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.deleteMedicalRecord with param = firstName0,lastName0
-2022-11-23 15:56:11.079 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.deleteMedicalRecord with param = firstName1,lastName1
-2022-11-23 15:56:11.079 ERROR 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Medical Record doesn't exist !
-2022-11-23 15:56:11.086 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = firstName0,lastName0
-2022-11-23 15:56:11.089 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedication with param = firstName0,lastName0
-2022-11-23 15:56:11.089 DEBUG 1964 --- [main] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = firstName0,lastName0
-2022-11-23 15:56:11.098 DEBUG 1964 --- [main] c.s.api.repository.PersonRepository      : Call PersonRepository.createPerson with parma = com.safetynet.api.model.Person@6015326
-2022-11-23 15:56:11.104 DEBUG 1964 --- [main] c.s.api.repository.PersonRepository      : Call PersonRepository.updatePerson with parma = firstName0,lastName0
-2022-11-23 15:56:11.107 DEBUG 1964 --- [main] c.s.api.repository.PersonRepository      : Call PersonRepository.updatePerson with parma = com.safetynet.api.model.Person@6d36529a
-2022-11-23 15:56:11.111 DEBUG 1964 --- [main] c.s.api.repository.PersonRepository      : Call PersonRepository.createPerson with parma = com.safetynet.api.model.Person@2653b95f
-2022-11-23 15:56:11.111 ERROR 1964 --- [main] c.s.api.repository.PersonRepository      : Person Already Exist !
-2022-11-23 15:56:11.114 DEBUG 1964 --- [main] c.s.api.repository.PersonRepository      : Call personRepository.getPersonByStation with param = com.safetynet.api.model.Firestation@64e5f67b
-2022-11-23 15:56:11.117 DEBUG 1964 --- [main] c.s.api.repository.PersonRepository      : Call PersonRepository.updatePerson with parma = com.safetynet.api.model.Person@687101a2
-2022-11-23 15:56:11.117 ERROR 1964 --- [main] c.s.api.repository.PersonRepository      : Person doesn't Exist !
-2022-11-23 15:56:11.120 DEBUG 1964 --- [main] c.s.api.repository.PersonRepository      : Call personRepository.getEmailByCity with param : city0
-2022-11-23 15:56:11.126 DEBUG 1964 --- [main] c.s.api.repository.PersonRepository      : Call PersonRepository.getPersonByAddress with param = address0
-2022-11-23 15:56:11.128 DEBUG 1964 --- [main] c.s.api.repository.PersonRepository      : Call PersonRepository.updatePerson with parma = firstName1,lastName1
-2022-11-23 15:56:11.129 ERROR 1964 --- [main] c.s.api.repository.PersonRepository      : Person doesn't Exist !
-2022-11-23 15:56:11.356 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : Call firestationService.updateFiresation with param = com.safetynet.api.model.Firestation@646cccb9
-2022-11-23 15:56:11.357 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : Response to firestationRepository.updateFiresation : null
-2022-11-23 15:56:11.364 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : Call FirestationService.getPhoneNumberByStationNumber with param = 0
-2022-11-23 15:56:11.365 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : Response to firestationRepository.getFirestationsByNumber : [com.safetynet.api.model.Firestation@78e52e87]
-2022-11-23 15:56:11.365 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : Response to personRepository.getPersonByStation : [com.safetynet.api.model.Person@53b464b9]
-2022-11-23 15:56:11.370 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : Call FirestationService.createFirestation with param = com.safetynet.api.model.Firestation@1c9c7f1e
-2022-11-23 15:56:11.371 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : Response to firestationRepository.createFirestation :null
-2022-11-23 15:56:11.377 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : Call FirestationService.getPersonsByStationNumber with param : 0
-2022-11-23 15:56:11.377 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : firestationSelectList = [com.safetynet.api.model.Firestation@5a6029d9]
-2022-11-23 15:56:11.378 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : personSelectList : [com.safetynet.api.model.Person@2811cde7]
-2022-11-23 15:56:11.378 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : personLiteSelectList : [{firstName=firstName0, lastName=lastName0, address=address0, phone=phone0}]
-2022-11-23 15:56:11.378 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : Response to medicalRecordRepository.countAdultAndChild : {Adult=0, Child=1}
-2022-11-23 15:56:11.383 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : Call FiresationService.deleteFirestation with param = com.safetynet.api.model.Firestation@125c42e3
-2022-11-23 15:56:11.383 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : Response to firestationRepository.deleteFirestation : null
-2022-11-23 15:56:11.390 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : Call FirestationService.getFamilyByFireStation with param = [0]
-2022-11-23 15:56:11.391 DEBUG 1964 --- [main] c.s.api.service.FirestationService       :  firestationList = [com.safetynet.api.model.Firestation@646599c6]
-2022-11-23 15:56:11.392 DEBUG 1964 --- [main] c.s.api.service.FirestationService       : personStringList = [firstName0 lastName0 || Phone : phone0 || Age : 30 || Medications : {medication00=medic00, medication01=medic01} || Allergies : [allergie0]]
-2022-11-23 15:56:11.400 DEBUG 1964 --- [main] c.s.api.service.MedicalRecordService     : Call MedicalRecordService.updateMedicalRecord with param = com.safetynet.api.model.MedicalRecord@4457e347
-2022-11-23 15:56:11.401 DEBUG 1964 --- [main] c.s.api.service.MedicalRecordService     : Response to medicalRecordRepository.updateMedicalRecord : null
-2022-11-23 15:56:11.405 DEBUG 1964 --- [main] c.s.api.service.MedicalRecordService     : Call MedicalRecordService.createMedicalRecord with param = com.safetynet.api.model.MedicalRecord@73515663
-2022-11-23 15:56:11.405 DEBUG 1964 --- [main] c.s.api.service.MedicalRecordService     : Response to medicalRecordRepository.createMedicalRecord : null
-2022-11-23 15:56:11.411 DEBUG 1964 --- [main] c.s.api.service.MedicalRecordService     : Call MedicalRecordService.deleteMedicalRecord with param : firstName,lastName
-2022-11-23 15:56:11.411 DEBUG 1964 --- [main] c.s.api.service.MedicalRecordService     : Response to medicalRecordRepository.deleteMedicalRecord : null
-2022-11-23 15:56:11.426 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Call personService.updatePerson() with param : null
-2022-11-23 15:56:11.433 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Call personService.deletePerson() with param : null,null
-2022-11-23 15:56:11.434  INFO 1964 --- [main] com.safetynet.api.service.PersonService  : Response to personRepository.deletePerson : null
-2022-11-23 15:56:11.442 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Call personService.getChildAlertAndFamilyByAddress with param : address0
-2022-11-23 15:56:11.443 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Response PersonRepository.getPersonByAddress = [com.safetynet.api.model.Person@3fb732ee, com.safetynet.api.model.Person@399b9537, com.safetynet.api.model.Person@3117fd8, com.safetynet.api.model.Person@7d4f7aab]
-2022-11-23 15:56:11.443 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Call PersonService.getChild with param = [com.safetynet.api.model.Person@3fb732ee, com.safetynet.api.model.Person@399b9537, com.safetynet.api.model.Person@3117fd8, com.safetynet.api.model.Person@7d4f7aab]
-2022-11-23 15:56:11.443 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 5
-2022-11-23 15:56:11.444 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 45
-2022-11-23 15:56:11.444 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 50
-2022-11-23 15:56:11.444 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 45
-2022-11-23 15:56:11.444 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : childList : [com.safetynet.api.model.Person@3fb732ee]
-2022-11-23 15:56:11.444 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Response to PersonService.getChild : [com.safetynet.api.model.Person@3fb732ee]
-2022-11-23 15:56:11.445 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Call PersonService.getFamily with param : com.safetynet.api.model.Person@3fb732ee
-2022-11-23 15:56:11.445 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : family : [com.safetynet.api.model.Person@399b9537]
-2022-11-23 15:56:11.445 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Response to PersonService.getFamily : [com.safetynet.api.model.Person@399b9537]
-2022-11-23 15:56:11.445 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  :  familyLite = [{firstName=firstName0, lastName=lastName0}]
-2022-11-23 15:56:11.446 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : childMap = {FirstName=childFirstName0, LastName=lastName0, Age=5, Family=[{firstName=firstName0, lastName=lastName0}]}
-2022-11-23 15:56:11.456 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Call PersonService.getPersonMedicalRecordAndStationNumber with param = address0
-2022-11-23 15:56:11.459 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Reponse to personRepository.getPersonByAddress : [com.safetynet.api.model.Person@23a24fea]
-2022-11-23 15:56:11.460 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Response to firestationRepository.getFirestationByAddress with param = address0
-2022-11-23 15:56:11.461 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : personMap = {firstName=firstName0, lastName=lastName0, phone=phone0, age=45, allergies=[allergieTest], medications={medocTest=30KG!!}}
-2022-11-23 15:56:11.470 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Call PersonService.getPersonInfo with param = firstName0,lastName0
-2022-11-23 15:56:11.471 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : personMap : {firstName=firstName0, lastName=lastName0, address=address0, Age=45, email=00@, medications={}, allergies=[]}
-2022-11-23 15:56:11.478 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Call PersonService.getEmailByCity with param : null
-2022-11-23 15:56:11.478 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Response to personRepository.getEmailByCity : []
-2022-11-23 15:56:11.484 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Call personService.createPerson() with param : null
-2022-11-23 15:56:11.485 DEBUG 1964 --- [main] com.safetynet.api.service.PersonService  : Response to personRepository.createPerson : null
+2022-11-24 11:32:31.487  INFO 2412 --- [main] com.safetynet.api.ApiApplication         : Starting ApiApplication using Java 18 on DESKTOP-R2DIIID with PID 2412 (C:\Users\Bertrand\Google Drive\Openclassroom\P5\api\target\classes started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
+2022-11-24 11:32:31.493 DEBUG 2412 --- [main] com.safetynet.api.ApiApplication         : Running with Spring Boot v2.7.5, Spring v5.3.23
+2022-11-24 11:32:31.494  INFO 2412 --- [main] com.safetynet.api.ApiApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-11-24 11:32:32.719  INFO 2412 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-24 11:32:33.714  INFO 2412 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-24 11:32:33.729  INFO 2412 --- [main] com.safetynet.api.ApiApplication         : Started ApiApplication in 2.632 seconds (JVM running for 3.387)
+2022-11-24 11:32:40.456  INFO 2412 --- [http-nio-8080-exec-2] c.s.api.controller.PersonController      : Request get /childAlert with param address = 1509 Culver St
+2022-11-24 11:32:40.457 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : Call personService.getChildAlertAndFamilyByAddress with param : 1509 Culver St
+2022-11-24 11:32:40.457 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.api.repository.PersonRepository      : Call PersonRepository.getPersonByAddress with param = 1509 Culver St
+2022-11-24 11:32:40.457 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : Response PersonRepository.getPersonByAddress = [com.safetynet.api.model.Person@6c716900, com.safetynet.api.model.Person@51f2c124, com.safetynet.api.model.Person@4437f028, com.safetynet.api.model.Person@20b5db33, com.safetynet.api.model.Person@476b8f4c]
+2022-11-24 11:32:40.457 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : Call PersonService.getChild with param = [com.safetynet.api.model.Person@6c716900, com.safetynet.api.model.Person@51f2c124, com.safetynet.api.model.Person@4437f028, com.safetynet.api.model.Person@20b5db33, com.safetynet.api.model.Person@476b8f4c]
+2022-11-24 11:32:40.457 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@6c716900
+2022-11-24 11:32:40.458 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = Roger,Boyd
+2022-11-24 11:32:40.458 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 5
+2022-11-24 11:32:40.458 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@51f2c124
+2022-11-24 11:32:40.458 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = Jacob,Boyd
+2022-11-24 11:32:40.458 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 33
+2022-11-24 11:32:40.458 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@4437f028
+2022-11-24 11:32:40.458 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = Tenley,Boyd
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 10
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@20b5db33
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = John,Boyd
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 38
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@476b8f4c
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = Felicia,Boyd
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : Response to medicalRecordRepository.getAge : 36
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : childList : [com.safetynet.api.model.Person@6c716900, com.safetynet.api.model.Person@4437f028]
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : Response to PersonService.getChild : [com.safetynet.api.model.Person@6c716900, com.safetynet.api.model.Person@4437f028]
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : Call PersonService.getFamily with param : com.safetynet.api.model.Person@6c716900
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : family : [com.safetynet.api.model.Person@51f2c124, com.safetynet.api.model.Person@4437f028, com.safetynet.api.model.Person@20b5db33, com.safetynet.api.model.Person@476b8f4c]
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : Response to PersonService.getFamily : [com.safetynet.api.model.Person@51f2c124, com.safetynet.api.model.Person@4437f028, com.safetynet.api.model.Person@20b5db33, com.safetynet.api.model.Person@476b8f4c]
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  :  familyLite = [{firstName=Jacob, lastName=Boyd}, {firstName=Tenley, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@6c716900
+2022-11-24 11:32:40.459 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = Roger,Boyd
+2022-11-24 11:32:40.460 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : childMap = {FirstName=Roger, LastName=Boyd, Age=5, Family=[{firstName=Jacob, lastName=Boyd}, {firstName=Tenley, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}
+2022-11-24 11:32:40.460 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : Call PersonService.getFamily with param : com.safetynet.api.model.Person@4437f028
+2022-11-24 11:32:40.460 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : family : [com.safetynet.api.model.Person@6c716900, com.safetynet.api.model.Person@51f2c124, com.safetynet.api.model.Person@20b5db33, com.safetynet.api.model.Person@476b8f4c]
+2022-11-24 11:32:40.460 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : Response to PersonService.getFamily : [com.safetynet.api.model.Person@6c716900, com.safetynet.api.model.Person@51f2c124, com.safetynet.api.model.Person@20b5db33, com.safetynet.api.model.Person@476b8f4c]
+2022-11-24 11:32:40.460 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  :  familyLite = [{firstName=Roger, lastName=Boyd}, {firstName=Jacob, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]
+2022-11-24 11:32:40.460 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getAge with param = com.safetynet.api.model.Person@4437f028
+2022-11-24 11:32:40.460 DEBUG 2412 --- [http-nio-8080-exec-2] c.s.a.r.MedicalRecordRepository          : Call MedicalRecordRepository.getMedicalRecord with param = Tenley,Boyd
+2022-11-24 11:32:40.460 DEBUG 2412 --- [http-nio-8080-exec-2] com.safetynet.api.service.PersonService  : childMap = {FirstName=Tenley, LastName=Boyd, Age=10, Family=[{firstName=Roger, lastName=Boyd}, {firstName=Jacob, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}
+2022-11-24 11:32:40.460  INFO 2412 --- [http-nio-8080-exec-2] c.s.api.controller.PersonController      : Response to get /childAlert : [{FirstName=Roger, LastName=Boyd, Age=5, Family=[{firstName=Jacob, lastName=Boyd}, {firstName=Tenley, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}, {FirstName=Tenley, LastName=Boyd, Age=10, Family=[{firstName=Roger, lastName=Boyd}, {firstName=Jacob, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}]
+2022-11-24 11:33:32.780  INFO 21360 --- [main] com.safetynet.api.ApiApplication         : Starting ApiApplication using Java 18 on DESKTOP-R2DIIID with PID 21360 (C:\Users\Bertrand\Google Drive\Openclassroom\P5\api\target\classes started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
+2022-11-24 11:33:32.782  INFO 21360 --- [main] com.safetynet.api.ApiApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-11-24 11:33:33.637  INFO 21360 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-24 11:33:34.273  INFO 21360 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-24 11:33:34.283  INFO 21360 --- [main] com.safetynet.api.ApiApplication         : Started ApiApplication in 1.797 seconds (JVM running for 2.275)
+2022-11-24 11:33:48.791  INFO 21360 --- [http-nio-8080-exec-2] c.s.api.controller.PersonController      : Request get /childAlert with param address = 1509 Culver St
+2022-11-24 11:33:48.792  INFO 21360 --- [http-nio-8080-exec-2] c.s.api.controller.PersonController      : Response to get /childAlert : [{FirstName=Roger, LastName=Boyd, Age=5, Family=[{firstName=Jacob, lastName=Boyd}, {firstName=Tenley, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}, {FirstName=Tenley, LastName=Boyd, Age=10, Family=[{firstName=Roger, lastName=Boyd}, {firstName=Jacob, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}]
+2022-11-24 12:04:59.550  INFO 9960 --- [main] com.safetynet.api.ApiApplication         : Starting ApiApplication using Java 18 on DESKTOP-R2DIIID with PID 9960 (C:\Users\Bertrand\Google Drive\Openclassroom\P5\api\target\classes started by Bertrand in C:\Users\Bertrand\Google Drive\Openclassroom\P5\api)
+2022-11-24 12:04:59.553  INFO 9960 --- [main] com.safetynet.api.ApiApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-11-24 12:05:00.464  INFO 9960 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-24 12:05:01.141  INFO 9960 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-24 12:05:01.151  INFO 9960 --- [main] com.safetynet.api.ApiApplication         : Started ApiApplication in 1.905 seconds (JVM running for 2.465)
+2022-11-24 12:05:05.178  INFO 9960 --- [http-nio-8080-exec-2] c.s.a.controller.FirestationController   : Request get/firestation with param stationNumber = 3
+2022-11-24 12:05:05.179  INFO 9960 --- [http-nio-8080-exec-2] c.s.a.controller.FirestationController   : Response to get/firestation : [{Adult=5, Children=3}, [{firstName=Clive, lastName=Ferguson, address=748 Townings Dr, phone=841-874-6741}, {firstName=Foster, lastName=Shepard, address=748 Townings Dr, phone=841-874-6544}, {firstName=Roger, lastName=Boyd, address=1509 Culver St, phone=841-874-6512}, {firstName=Jacob, lastName=Boyd, address=1509 Culver St, phone=841-874-6513}, {firstName=Tenley, lastName=Boyd, address=1509 Culver St, phone=841-874-6512}, {firstName=John, lastName=Boyd, address=1509 Culver St, phone=841-874-6512}, {firstName=Felicia, lastName=Boyd, address=1509 Culver St, phone=841-874-6544}, {firstName=Tessa, lastName=Carman, address=834 Binoc Ave, phone=841-874-6512}]]
+2022-11-24 12:05:10.046  INFO 9960 --- [http-nio-8080-exec-3] c.s.api.controller.PersonController      : Request get /childAlert with param address = 1509 Culver St
+2022-11-24 12:05:10.047  INFO 9960 --- [http-nio-8080-exec-3] c.s.api.controller.PersonController      : Response to get /childAlert : [{FirstName=Roger, LastName=Boyd, Age=5, Family=[{firstName=Jacob, lastName=Boyd}, {firstName=Tenley, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}, {FirstName=Tenley, LastName=Boyd, Age=10, Family=[{firstName=Roger, lastName=Boyd}, {firstName=Jacob, lastName=Boyd}, {firstName=John, lastName=Boyd}, {firstName=Felicia, lastName=Boyd}]}]
+2022-11-24 12:05:13.383  INFO 9960 --- [http-nio-8080-exec-4] c.s.api.controller.PersonController      : Request to get /personInfo with param firstName = John and lastName = Boyd
+2022-11-24 12:05:13.383  INFO 9960 --- [http-nio-8080-exec-4] c.s.api.controller.PersonController      : Response to get/personInfo : [{firstName=John, lastName=Boyd, address=1509 Culver St, Age=38, email=jaboyd@email.com, medications={hydrapermazol=100mg, aznol=350mg}, allergies=[nillacilan]}]
+2022-11-24 14:18:52.459  INFO 9960 --- [http-nio-8080-exec-7] c.s.api.controller.PersonController      : Request to get/fire with param address = 947 E. Rose Dr
+2022-11-24 14:18:52.462  INFO 9960 --- [http-nio-8080-exec-7] c.s.api.controller.PersonController      : Response to get/fire : {firesation=1, person=[{firstName=Shawna, lastName=Stelzer, phone=841-874-7784, age=42, allergies=[], medications={}}, {firstName=Kendrik, lastName=Stelzer, phone=841-874-7784, age=8, allergies=[], medications={noxidian=100mg, pharmacol=2500mg}}, {firstName=Brian, lastName=Stelzer, phone=841-874-7784, age=46, allergies=[nillacilan], medications={ibupurin=200mg, hydrapermazol=400mg}}]}
+2022-11-24 14:32:55.662  INFO 9960 --- [http-nio-8080-exec-9] c.s.a.controller.FirestationController   : Request get/phoneAlert with param firestation = 1
+2022-11-24 14:32:55.663  INFO 9960 --- [http-nio-8080-exec-9] c.s.a.controller.FirestationController   : Response to get/phoneAlert : [841-874-8547, 841-874-7462, 841-874-7784, 841-874-7784, 841-874-7784, 841-874-6512]
