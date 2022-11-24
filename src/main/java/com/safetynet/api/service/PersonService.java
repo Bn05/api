@@ -25,6 +25,11 @@ public class PersonService {
     @Autowired
     private FirestationRepository firestationRepository;
 
+    /**
+     * Give the children and their families at address
+     * @param address
+     * @return count of children at an address and their families
+     */
     public List<Object> getChildAlertAndFamilyByAddress(String address) {
         logger.debug("Call personService.getChildAlertAndFamilyByAddress with param : " + address);
 
@@ -65,6 +70,11 @@ public class PersonService {
 
     }
 
+    /**
+     *Give the people who live at this address and their medical records
+     * @param address
+     * @return Map with station number and the persons as well as the medical file
+     */
     public Map<String, Object> getPersonMedicalRecordAndStationNumber(String address) {
 
         logger.debug("Call PersonService.getPersonMedicalRecordAndStationNumber with param = " + address);
@@ -102,6 +112,11 @@ public class PersonService {
         return objectMap;
     }
 
+    /**
+     * Just call personRepository.getEmailByCity
+     * @param city
+     * @return List
+     */
     public List<String> getEmailByCity(String city) {
         logger.debug("Call PersonService.getEmailByCity with param : " + city);
         List<String> returnListString = personRepository.getEmailByCity(city);
@@ -109,6 +124,12 @@ public class PersonService {
         return returnListString;
     }
 
+    /**
+     * Give information of person
+     * @param firstName
+     * @param lastNAme
+     * @return List with information
+     */
     public List<Map<String, String>> getPersonInfo(String firstName, String lastNAme) {
         logger.debug("Call PersonService.getPersonInfo with param = " + firstName + "," + lastNAme);
         List<Person> personList = new ArrayList<>(personRepository.getPersonMap().values());
@@ -131,6 +152,11 @@ public class PersonService {
         return peronResultList;
     }
 
+    /**
+     * Just call personRepository.createPerson
+     * @param person
+     * @return
+     */
     public String createPerson(Person person) {
         logger.debug("Call personService.createPerson() with param : " + person);
         String returnString = personRepository.createPerson(person);
@@ -138,12 +164,23 @@ public class PersonService {
         return returnString;
     }
 
+    /**
+     * Just call personRepository.updatePerson
+     * @param person
+     * @return
+     */
     public String updatePerson(Person person) {
 
         logger.debug("Call personService.updatePerson() with param : " + person);
         return personRepository.updatePerson(person);
     }
 
+    /**
+     * Just call  personRepository.deletePerson(
+     * @param firstName
+     * @param lastName
+     * @return
+     */
     public String deletePerson(String firstName, String lastName) {
         logger.debug("Call personService.deletePerson() with param : " + firstName + "," + lastName);
        String returnString = personRepository.deletePerson(firstName, lastName);
@@ -151,6 +188,11 @@ public class PersonService {
        return returnString;
     }
 
+    /**
+     * Give the children of the list
+     * @param personList
+     * @return List<Person>
+     */
     public List<Person> getChild(List<Person> personList) {
         logger.debug("Call PersonService.getChild with param = " + personList.toString());
 
@@ -166,6 +208,11 @@ public class PersonService {
         return childList;
     }
 
+    /**
+     * Give the family of a person
+     * @param person
+     * @return List<Person>
+     */
     private List<Person> getFamily(Person person) {
         logger.debug("Call PersonService.getFamily with param : " + person.toString());
         List<Person> personList = new ArrayList<>(personRepository.getPersonMap().values());

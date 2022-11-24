@@ -16,6 +16,9 @@ public class MedicalRecordService {
     @Autowired
     MedicalRecordRepository medicalRecordRepository;
 
+    /**
+     * Just call medicalRecordRepository.createMedicalRecord
+     */
     public String createMedicalRecord(MedicalRecord medicalRecord) {
         logger.debug("Call MedicalRecordService.createMedicalRecord with param = " + medicalRecord.toString());
         String returnString = medicalRecordRepository.createMedicalRecord(medicalRecord);
@@ -23,6 +26,9 @@ public class MedicalRecordService {
         return returnString;
     }
 
+    /**
+     * Just call medicalRecordRepository.updateMedicalRecord
+     */
     public String updateMedicalRecord(MedicalRecord medicalRecord) {
         logger.debug("Call MedicalRecordService.updateMedicalRecord with param = " + medicalRecord.toString());
         String returnString = medicalRecordRepository.updateMedicalRecord(medicalRecord);
@@ -30,6 +36,9 @@ public class MedicalRecordService {
         return returnString;
     }
 
+    /**
+     * Just call medicalRecordRepository.deleteMedicalRecord
+     */
     public String deleteMedicalRecord(String firstName, String lastName) {
         logger.debug("Call MedicalRecordService.deleteMedicalRecord with param : " + firstName + "," + lastName);
         String returnString = medicalRecordRepository.deleteMedicalRecord(firstName, lastName);
